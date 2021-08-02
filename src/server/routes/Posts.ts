@@ -32,7 +32,6 @@ router.get('/:locationEventName/:id?', async (req, res) => { // /api/blogs/3
 router.post('/:locationEventName', async (req, res) => {
   const postObj: post = req.body;
   try {
-    const newUser = await db.Users.post(postObj.name, postObj.email, postObj.password, postObj.profileType);
     await db.Posts.post(postObj.userid, postObj.title, postObj.text, postObj.locationEventName, postObj.dayEvent, postObj.timeEvent, postObj.dayPosted, postObj.timePosted, postObj.moneyAmount);
     res.send("success");
   } catch (error) {
