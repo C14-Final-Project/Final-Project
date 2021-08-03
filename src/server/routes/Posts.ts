@@ -39,6 +39,16 @@ router.post('/:locationEventName', async (req, res) => {
   }
 });
 
+router.delete('/:locationEventName/:id?', async (req, res) => {
+  const id: string = req.params.id;
+  try {
+    await db.Posts.destroy(id);
+    res.send("deleted successfully");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 
 

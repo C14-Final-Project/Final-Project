@@ -55,4 +55,10 @@ INSERT INTO Users (name, email, password, profileType) VALUES
 ('Username2', "2@test.com",  'password2', 'artist'),
 ('Username3',"3@test.com", 'password3', 'artist');
 
+INSERT INTO Posts (userid, title, text, locationEventName, dayEvent, timeEvent, dayPosted, timePosted, moneyAmount) VALUES
+('2', "test post", 'pls ignore', 'Birmingham', 'August 2nd 2021', '7pm', 'July 10th 2021', '10am', '$125'),
+('1', "test post 2", 'pls ignore 2', 'Nashville', 'August 5nd 2021', '8pm', 'July 13th 2021', '9am', '$75'),
+('3', "test post 3", 'pls ignore 3', 'Huntsville', 'August 1st 2021', '5pm', 'July 15th 2021', '3pm', '$30');
+
+
 

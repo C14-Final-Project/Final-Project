@@ -18,9 +18,13 @@ const post = async (userid: string, title: string, text: string, locationEventNa
     insert into Posts (userid, title, text, locationEventName, dayEvent, timeEvent, dayPosted, timePosted, moneyAmount) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 `, [userid, title, text, locationEventName, dayEvent, timeEvent, dayPosted, timePosted, moneyAmount]);
 
+const destroy = async (id: string) => Query(`
+    DELETE FROM Posts WHERE Posts.id = ?;
+`, [id]);
 
 export default {
     all,
     one,
-    post
+    post,
+    destroy
 }
