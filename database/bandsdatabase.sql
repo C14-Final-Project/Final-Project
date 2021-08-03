@@ -55,12 +55,15 @@ INSERT INTO Users (username, email, password, profileType) VALUES
 ('Username2', "2@test.com",  'password2', 'artist'),
 ('Username3',"3@test.com", 'password3', 'artist');
 
-INSERT INTO Posts (userid, title, text, locationEventName, dayEvent, timeEvent, dayPosted, timePosted, moneyAmount) VALUES
-('2', "test post", 'pls ignore', 'Birmingham', 'August 2nd 2021', '7pm', 'July 10th 2021', '10am', '$125'),
-('1', "test post 2", 'pls ignore 2', 'Nashville', 'August 5nd 2021', '8pm', 'July 13th 2021', '9am', '$75'),
-('3', "test post 3", 'pls ignore 3', 'Huntsville', 'August 1st 2021', '5pm', 'July 15th 2021', '3pm', '$30');
-
 INSERT INTO Users (username, email, password, profileType, profileName, profileBio, profileLocation, profilePhoto, popularity, tag1, tag2, tag3) VALUES 
 ('Username4', "4@test.com", 'password4', 'venue', 'Chris', 'it me', 'Birmingham', 'placeholder', 10, 'tag1', 'tag2', 'tag3'),
 ('Username5', "5@test.com",  'password5', 'artist', 'Connor','it me', 'Birmingham', 'placeholder', 20, 'tag1', 'tag2', 'tag3'),
 ('Username6',"6@test.com", 'password6', 'venue', 'Adam','it me', 'Birmingham', 'placeholder', 30, 'tag1', 'tag2', 'tag3');
+
+INSERT INTO Posts (userid, title, text, locationEventName, dayEvent, timeEvent, dayPosted, timePosted, moneyAmount) VALUES
+('6', "test post", 'pls ignore', 'Birmingham', 'August 2nd 2021', '7pm', 'July 10th 2021', '10am', '$125'),
+('5', "test post 2", 'pls ignore 2', 'Nashville', 'August 5nd 2021', '8pm', 'July 13th 2021', '9am', '$75'),
+('4', "test post 3", 'pls ignore 3', 'Huntsville', 'August 1st 2021', '5pm', 'July 15th 2021', '3pm', '$30');
+
+
+

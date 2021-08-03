@@ -3,6 +3,12 @@ import db from "../db";
 
 const router = express.Router();
 
+router.get('/:locationEventName', async (req, res) => { 
+  const locationEventName: string = req.params.locationEventName;
+  const posts = await db.Posts.all(locationEventName);
+  res.json(posts);
+});
+
 router.get('/:locationEventName/:id?', async (req, res) => { 
   const id: string = req.params.id;
   const locationEventName: string = req.params.locationEventName;
