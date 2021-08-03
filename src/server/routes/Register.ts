@@ -9,17 +9,13 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const registerObj: register = req.body;
-  
     try {
-  
       await db.Register.register(registerObj.name, registerObj.email, registerObj.password, registerObj.profileType);
-  
       res.send("success");
     } catch (error) {
       console.log(error);
     }
 });
-
 
 interface register {
     name: string, 
@@ -29,4 +25,3 @@ interface register {
 }
 
 export default router
-

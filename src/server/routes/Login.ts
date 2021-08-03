@@ -13,9 +13,7 @@ router.get(`/email=:email&password=:password`, async (req, res) => {
     } else {
         res.send(false)
         console.log(false)
-    }
-    
+    }   
 });
-
 
 export default router

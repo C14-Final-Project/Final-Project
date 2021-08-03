@@ -26,6 +26,17 @@ router.post('/:locationEventName', async (req, res) => {
   }
 });
 
+router.put('/:locationEventName/:id', async (req, res) => {
+  const id: string = req.params.id;
+  const postObj: post = req.body;
+  try {
+    await db.Posts.put(id, postObj.title, postObj.text, postObj.locationEventName, postObj.dayEvent, postObj.timeEvent, postObj.moneyAmount);
+    res.send("edited successfully");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.delete('/:locationEventName/:id?', async (req, res) => {
   const id: string = req.params.id;
   try {
@@ -35,10 +46,6 @@ router.delete('/:locationEventName/:id?', async (req, res) => {
     console.log(error);
   }
 });
-
-
-
-
 
 interface post {
   id?: string,
