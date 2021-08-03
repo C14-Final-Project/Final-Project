@@ -36,7 +36,7 @@ router.put('/:locationEventName/:id', async (req, res) => {
   }
 });
 
-router.delete('/:locationEventName/:id?', async (req, res) => {
+router.delete('/:locationEventName/:id', async (req, res) => {
   const id: string = req.params.id;
   try {
     await db.Posts.destroy(id);
