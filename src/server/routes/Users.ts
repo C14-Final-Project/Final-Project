@@ -17,8 +17,7 @@ router.get('/:username', async (req, res) => {
   const username: string = req.params.username;
   if (username) {
     const profile = await db.Users.getUserProfile(username)
-    res.json(profile)
-    console.log(profile)
+    res.json(profile[0])
   } else  {
     console.log('error')
   }
