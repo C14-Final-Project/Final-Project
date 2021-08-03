@@ -6,11 +6,13 @@ const getUserID = async (email: string) => Query(`
     where Users.email = ?
 `, [email])
 
-const post = async (name: string, email: string, password: string, profileType: string) => Query(`
-    insert into Users (name, email, profileType) values (?, ?, ?)
-`, [name, email, password, profileType]);
+const getUserProfile = async (username: string) => Query(`
+    select Users.id, Users.username, Users.profileName, Users.profileLocation, Users.profileBio, Users.profileType, Users.profilePhoto, Users.popularity, Users.tag1, Users.tag2, Users.tag3
+    from Users
+    where Users.username = ?
+`, [username])
 
 export default {
     getUserID,
-    post
+    getUserProfile
 }

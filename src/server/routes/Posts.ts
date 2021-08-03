@@ -6,7 +6,6 @@ const router = express.Router();
 router.get('/:locationEventName/:id?', async (req, res) => { 
   const id: string = req.params.id;
   const locationEventName: string = req.params.locationEventName;
-
   if (id) {
     const post = await db.Posts.one(id);
     res.json(post[0]);

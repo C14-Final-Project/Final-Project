@@ -1,14 +1,14 @@
 import { Query } from "./index";
 
 const all = async (locationEventName: string) => Query(`
-    select Posts.id, Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Users.name, Users.email
+    select Posts.id, Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Users.username, Users.email, Users.profileLocation, Users.profieType, Users.profileName
     from Posts
     join Users on Posts.userid = Users.id
     where Posts.locationEventName = ?;
 `, [locationEventName]);
 
 const one = async (id: any) => Query(`
-    select Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Posts.locationEventName, Users.name, Users.email
+    select Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Posts.locationEventName, Users.username, Users.email, Users.profileLocation, Users.profieType, Users.profileName
     from Posts
     join Users on Posts.userid = Users.id
     where Posts.id = ?; 
