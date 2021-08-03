@@ -3,20 +3,7 @@ import db from "../db";
 
 const router = express.Router();
 
-router.get('/:locationEventName', async (req, res) => { // /api/blogs/3
-  const locationEventName: string = req.params.locationEventName;
-  if(locationEventName) {
-    const posts = await db.Posts.all(locationEventName);
-    console.log(posts)
-    res.json(posts);
-  } else {
-    console.log('keep codin')
-  }
-  
-  
-});
-
-router.get('/:locationEventName/:id?', async (req, res) => { // /api/blogs/3
+router.get('/:locationEventName/:id?', async (req, res) => { 
   const id: string = req.params.id;
   const locationEventName: string = req.params.locationEventName;
 

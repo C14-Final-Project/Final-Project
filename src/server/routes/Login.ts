@@ -3,7 +3,7 @@ import db from "../db";
 
 const router = express.Router();
 
-router.get(`/email=:email&password=:password`, async (req, res) => { // /api/blogs/3
+router.get(`/email=:email&password=:password`, async (req, res) => { 
     const email: any = req.params.email;
     const checkPass = req.params.password;
     const password = await db.Login.login(email);

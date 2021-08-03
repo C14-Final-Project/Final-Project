@@ -4,7 +4,7 @@ import db from "../db";
 const router = express.Router();
 
 
-router.get('/email=:email', async (req, res) => { // /api/blogs/3
+router.get('/email=:email', async (req, res) => { 
     const email: string = req.params.email;
   
     if (email) {
