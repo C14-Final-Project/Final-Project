@@ -64,5 +64,3 @@ INSERT INTO Users (username, email, password, profileType, profileName, profileB
 ('Username4', "4@test.com", 'password4', 'venue', 'Chris', 'it me', 'Birmingham', 'placeholder', 10, 'tag1', 'tag2', 'tag3'),
 ('Username5', "5@test.com",  'password5', 'artist', 'Connor','it me', 'Birmingham', 'placeholder', 20, 'tag1', 'tag2', 'tag3'),
 ('Username6',"6@test.com", 'password6', 'venue', 'Adam','it me', 'Birmingham', 'placeholder', 30, 'tag1', 'tag2', 'tag3');
-
-

@@ -48,7 +48,7 @@ router.delete('/:locationEventName/:id?', async (req, res) => {
 
 interface post {
   id?: string,
-  name: string,
+  username: string,
   email: string,
   password: string,
   profileType: string,

@@ -12,7 +12,14 @@ const getUserProfile = async (username: string) => Query(`
     where Users.username = ?
 `, [username])
 
+const editUserProfile = async (username: string, email: string, profileName: string, profileBio: string, profileLocation: string, profilePhoto: string, tag1: string, tag2: string, tag3: string, id: string) => Query(`
+    UPDATE Users
+    SET username = ?,email = ?,profileName = ?,profileBio = ?,profileLocation = ?,profilePhoto = ?,tag1 = ?,tag2 = ?,tag3 = ?
+    WHERE Users.id = ?;
+`, [username, email, profileName, profileBio, profileLocation, profilePhoto, tag1, tag2, tag3, id])
+
 export default {
     getUserID,
-    getUserProfile
+    getUserProfile,
+    editUserProfile
 }
