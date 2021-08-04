@@ -13,6 +13,10 @@ const serverConfig = {
 				options: {
 					configFile: 'tsconfig.server.json'
 				}
+			},
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
 			}
 		]
 	},
@@ -47,6 +51,10 @@ const clientConfig = {
 			{
 				test: /\.scss$/,
 				use: ['style-loader', 'css-loader', 'sass-loader']
+			},
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
 			}
 		]
 	},
@@ -60,3 +68,6 @@ const clientConfig = {
 };
 
 module.exports = [serverConfig, clientConfig];
+
+
+
