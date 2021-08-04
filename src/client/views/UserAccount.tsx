@@ -2,7 +2,8 @@ import * as React from 'react';
 import Image from 'react-bootstrap/Image'
 
 
-function UserAccount() {
+const UserAccount = () => {
+  
   return(
    <>
     <div>
