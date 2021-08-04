@@ -1,16 +1,13 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar1 from './components/Navbar1'
-import Footer from './components/Footer'
-import { nameProps } from './utils/types'
-import Home from './views/Home'
+import Navbar1 from './components/Navbar1';
+import Footer from './components/Footer';
+import Home  from './views/Home';
 import Location from './views/Location'
 
-export interface AppProps {}
-/* HOOK REACT EXAMPLE */
-const App = (props: AppProps) => {
 
 
+const App = () => {
 	return (
 		<div>
 			<Router>

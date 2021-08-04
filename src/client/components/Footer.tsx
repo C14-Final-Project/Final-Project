@@ -8,7 +8,7 @@ function footer() {
    <>
   
 
-    <footer className=" bg-dark text-center text-lg-start  mt-xl-5 pt-4 ">
+    <footer className=" bg-dark text-center text-lg-start  pt-4 ">
     {/* <!-- Grid container --> */}
     <div className="container  p-2">
       {/* <!--Grid row--> */}
