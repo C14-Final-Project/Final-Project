@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { nameProps } from '../utils/types';
-import { useParams } from 'react-router-dom'
-import Calendar from 'react-calendar'
+import { useParams } from 'react-router-dom';
+import Calendar from 'react-calendar';
 import '../utils/Calendar.css';
 
 export interface LocationProps { }
@@ -44,14 +44,8 @@ const Location = (props: LocationProps) => {
 
     return (
         <div>
-<<<<<<< HEAD
-            <div className='row pb-2 d-flex flex-row bg-dark bg-gradient text-white'>
-                <div className='col-2 display-4 text-center'>‏‏‎</div>
-                <div className='col-10 pl-4 display-4' >{ location }</div>
-=======
             <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-dark text-white'>
                 <div style={{ fontSize: "300%" }} className='ps-5 col-12' >Calendar</div>
->>>>>>> 2200552452de0a8f8dcfb38de4c9f391d6781e0d
             </div>
             <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>
                 <div>{sidebarSelection}</div>
