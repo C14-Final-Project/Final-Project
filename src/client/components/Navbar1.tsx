@@ -41,7 +41,7 @@ function Navbar1() {
               <Nav className="me-auto">
                 <Nav.Link href="#link">Login</Nav.Link>
                 <Nav.Link href="#link">Register</Nav.Link>
-                <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="#">{processing.city} {processing.state}</a></NavLink>
+                <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="#">{processing.city } {processing.state}</a></NavLink>
               </Nav>
             </Navbar.Collapse>
           </Container>
