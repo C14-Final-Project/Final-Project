@@ -4,7 +4,7 @@ import db from "../db";
 const router = express.Router();
 
 router.get('/state=:state&city=:city', async (req, res) => { 
-  const locationEventName: string = req.params.locationEventName;
+  const locationEventName: string = req.params.locationEventName; 
   const posts = await db.Posts.all(locationEventName);
   res.json(posts);
 });

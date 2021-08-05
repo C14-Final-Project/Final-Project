@@ -13,15 +13,23 @@ const serverConfig = {
 				options: {
 					configFile: 'tsconfig.server.json'
 				}
+			},
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
 			}
 		]
+	},
+	devServer: {
+		historyApiFallback: true,
 	},
 	resolve: {
 		extensions: ['.ts', '.js']
 	},
 	output: {
 		filename: 'server.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
 	target: 'node',
 	node: {
@@ -47,16 +55,27 @@ const clientConfig = {
 			{
 				test: /\.scss$/,
 				use: ['style-loader', 'css-loader', 'sass-loader']
+			},
+			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
 			}
 		]
+	},
+	devServer: {
+		historyApiFallback: true,
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js', '.css', '.scss']
 	},
 	output: {
 		filename: 'app.js',
-		path: path.resolve(__dirname, 'public/js')
+		path: path.resolve(__dirname, 'public/js'),
+		publicPath: '/'
 	}
 };
 
 module.exports = [serverConfig, clientConfig];
+
+
+
