@@ -48,7 +48,7 @@ const Location = (props: LocationProps) => {
                 <div style={{ fontSize: "300%" }} className='ps-5 col-12' >Calendar</div>
             </div>
             <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>
-                <div>work in progress</div>
+                <div>{sidebarSelection}</div>
             </div>
             <div style={{ margin: "auto" }}  className='row pt-5 pb-5'>
                 <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
