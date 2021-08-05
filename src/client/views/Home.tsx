@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 
 function Home() {
   return (
-    <>
+    <div className='bg-dark'>
         <Card style={{ margin: "auto" }} className="row bg-dark text-white">
           <Card.Img style={{ width: "100%" }} className="opacity-5" src="https://tinyurl.com/5byketvw" alt="Card image" />
           <Card.ImgOverlay  >
@@ -29,7 +29,7 @@ function Home() {
 
 
 
-    </>
+    </div>
   );
 }
 
