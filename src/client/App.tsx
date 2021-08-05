@@ -7,27 +7,28 @@ import Location from './views/Location'
 
 
 
+
 const App = () => {
 	return (
-		<div>
-			<Router>
-				<Navbar1 />
-				<Switch>
-					<Route exact path="/" >
-						<Home />
-					</Route>
+    <div>
+      <Router>
+        <Navbar1 />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-					<Route path="/:location" >
-						<Location />
-					</Route>
-					
-					
-				</Switch>
-				
-				<Footer />
-			</Router>
-		</div>
-	);
+          <Route path="/:location">
+            <Location />
+          </Route>
+
+          
+        </Switch>
+
+        <Footer />
+      </Router>
+    </div>
+  );
 };
 
 export default App;
