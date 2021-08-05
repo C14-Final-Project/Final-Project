@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { nameProps } from '../utils/types';
-import { useParams } from 'react-router-dom'
-import Calendar from 'react-calendar'
+import { useParams } from 'react-router-dom';
+import Calendar from 'react-calendar';
 import '../utils/Calendar.css';
 
 export interface LocationProps { }

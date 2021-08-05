@@ -89,7 +89,7 @@ function footer() {
 
         {/* <!-- Copyright --> */}
         <div className="text-center p-3 border-top text-white border-white">
-          © 2020 Copyright:
+          © 2021 Perfomance, LLC. All rights reserved.
           <a className="text-white" href=""></a>
         </div>
         {/* <!-- Copyright --> */}
