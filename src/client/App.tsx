@@ -4,7 +4,6 @@ import Navbar1 from './components/Navbar1';
 import Footer from './components/Footer';
 import Home  from './views/Home';
 import Location from './views/Location'
-import UserAccount from './views/UserAccount';
 
 
 
@@ -18,12 +17,8 @@ const App = () => {
 						<Home />
 					</Route>
 
-					<Route exact path="/location/:location" >
+					<Route path="/:location" >
 						<Location />
-					</Route>
-
-					<Route exact path="/user/:useraccount" >
-						<UserAccount />
 					</Route>
 					
 					
