@@ -32,14 +32,14 @@ const Location = (props: LocationProps) => {
     const [sidebarSelection, setSidebarSelection] = useState<string>('')
 
     useEffect(() => {
-        setSidebarSelection(selectedDate.toString())
+        setSidebarSelection(selectedDate.toLocaleDateString())
     }, [selectedDate]);
 
     useEffect(() => {
         if (screen.width <= 480) {
             let showMe = document.querySelector('#smallScreen')
             showMe.classList.remove('invisible')
-        }
+        } 
     });
 
     return (
@@ -51,7 +51,7 @@ const Location = (props: LocationProps) => {
                 <div>work in progress</div>
             </div>
             <div style={{ margin: "auto" }}  className='row pt-5 pb-5'>
-                <div className='d-none d-sm-block d-md-block col-sm-2 border-end'>
+                <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
                     <div className="ms-2 card">
                         <ul className="list-group list-group-flush">
                             <li className="list-group-item pl-2">{sidebarSelection}</li>
@@ -66,9 +66,9 @@ const Location = (props: LocationProps) => {
                         </ul>
                     </div>
                 </div>
-                <div className='col-sm-9 col-xs-12'>
+                <div className='col-lg-10 col-md-9 col-sm-9 col-xs-12'>
                     <Calendar className='react-calendar btn border w-100'
-                        tileClassName='text-muted btn border rounded-0 p-3'
+                        tileClassName='text-muted btn border rounded-0 p-2'
                         onClickDay={(value) => setSelectedDate(value)}
                         onChange={onChange}
                         value={date}
