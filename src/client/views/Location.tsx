@@ -13,6 +13,12 @@ const Location = (props: LocationProps) => {
     const { location } = useParams<{ location: string }>();
 
     const [disabledDates, setDisabledDates] = useState([]);
+    const [date, onChange] = useState(new Date);
+    const [selectedDate, setSelectedDate] = useState<Date>(new Date)
+    const [sidebarSelection, setSidebarSelection] = useState<string>('')
+    const [colon, setColon] = useState<string>('')
+    const [time, setTime] = useState<string>()
+    const [date2, setDate2] = useState<string>()
 
     const getDaysArray = (start: any, end: any) => {
         for (var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
@@ -21,17 +27,32 @@ const Location = (props: LocationProps) => {
         return arr;
     };
 
-    const dateArray = getDaysArray(new Date("1970-01-01"), new Date());
+    const dateArray = getDaysArray(new Date(`1970-01-01 ${time}`), new Date(`${date2} ${time}`));
 
-    const [date, onChange] = useState(new Date);
+    const getTime = () => {
+        let x = new Date()
+        let y: string = x.toLocaleTimeString()
+
+        let dayNum = (x.getDate() - 1)
+        let dayString = dayNum.toString()
+        let monthNum = (x.getMonth() + 1)
+        let monthString = monthNum.toString()
+        let yearNum = x.getFullYear()
+        let yearString = yearNum.toString()
+        console.log(monthString)
+        setTime(y)
+        setDate2(`${yearString}-${monthString}-${dayString}`)
+        
+        console.log(y)
+    };
+
+    useEffect(() => {
+        getTime()
+    }, []);
 
     useEffect(() => {
         setDisabledDates(dateArray)
-    }, []);
-
-    const [selectedDate, setSelectedDate] = useState<Date>(new Date)
-    const [sidebarSelection, setSidebarSelection] = useState<string>('')
-    const [colon, setColon] = useState<string>('')
+    }, [time]);
 
     useEffect(() => {
         setSidebarSelection(selectedDate.toLocaleDateString())
