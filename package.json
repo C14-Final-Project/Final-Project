@@ -39,7 +39,6 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "sass-loader": "^11.0.1",
-    "sizes": "^1.1.2",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
     "typescript": "^4.2.3",
