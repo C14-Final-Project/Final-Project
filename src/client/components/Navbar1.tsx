@@ -9,14 +9,15 @@ import { NavLink } from 'react-router-dom'
 function Navbar1() {
 
   const [location, setLocation] = useState<string>()
-  const [processing, setProcessing] = useState({city: "", state: ""})
+  const [processing, setProcessing] = useState({city: "Your", state: "Area"})
+  const [comma, setComma] = useState({comma: ""})
 
   const getLocation = async () => {
     try {
         const res = await fetch('https://geolocation-db.com/json/');
         const userLocation = await res.json();
         setProcessing(userLocation);
-        console.log(location)
+        setComma({comma: ","})
     } catch (error) {
         console.log(error);
     }
@@ -41,7 +42,7 @@ function Navbar1() {
               <Nav className="me-auto">
                 <Nav.Link href="#link">Login</Nav.Link>
                 <Nav.Link href="#link">Register</Nav.Link>
-                <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="#">{processing.city} {processing.state}</a></NavLink>
+                <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="#">{processing.city}{comma.comma} {processing.state}</a></NavLink>
               </Nav>
             </Navbar.Collapse>
           </Container>

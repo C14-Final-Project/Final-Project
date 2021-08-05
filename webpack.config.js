@@ -20,12 +20,16 @@ const serverConfig = {
 			}
 		]
 	},
+	devServer: {
+		historyApiFallback: true,
+	},
 	resolve: {
 		extensions: ['.ts', '.js']
 	},
 	output: {
 		filename: 'server.js',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	},
 	target: 'node',
 	node: {
@@ -58,12 +62,16 @@ const clientConfig = {
 			}
 		]
 	},
+	devServer: {
+		historyApiFallback: true,
+	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js', '.css', '.scss']
 	},
 	output: {
 		filename: 'app.js',
-		path: path.resolve(__dirname, 'public/js')
+		path: path.resolve(__dirname, 'public/js'),
+		publicPath: '/'
 	}
 };
 
