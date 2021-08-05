@@ -48,7 +48,7 @@ const Location = (props: LocationProps) => {
         <div>
             <div className='row pb-2 d-flex flex-row bg-dark bg-gradient text-white'>
                 <div className='col-2 display-4 text-center'>‏‏‎</div>
-                <div className='col-10 pl-4 display-4' >{location}</div>
+                <div className='col-10 pl-4 display-4' >{ location }</div>
             </div>
 
             <nav className="row d-flex flex-row navbar pr-5 bg-light bg-gradient navbar-expand-lg navbar-light">
