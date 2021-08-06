@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 function Register() {
   return (
@@ -20,33 +21,13 @@ function Register() {
 
         <Card.ImgOverlay className=" bg-dark ">
           <Container className="d-flex flex-column justify-content-center align-items-center">
-            <Card.Title className="">Performance</Card.Title>
+            <Card.Title className="mb-3">Performance</Card.Title>
             <Card.Text>
-              <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form noValidate validated={} onSubmit={}>
                 <Row className="mb-3">
-                  <Form.Group as={Col} md="4" controlId="validationCustom01">
-                    <Form.Label>First name</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="First name"
-                      defaultValue="Mark"
-                    />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
-                    <Form.Label>Last name</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Last name"
-                      defaultValue="Otto"
-                    />
-                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                  </Form.Group>
                   <Form.Group
                     as={Col}
-                    md="4"
+                    md="5"
                     controlId="validationCustomUsername"
                   >
                     <Form.Label>Username</Form.Label>
@@ -65,38 +46,62 @@ function Register() {
                       </Form.Control.Feedback>
                     </InputGroup>
                   </Form.Group>
-                </Row>
-                <Row className="mb-3">
-                  <Form.Group as={Col} md="6" controlId="validationCustom03">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control type="text" placeholder="City" required />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a valid city.
-                    </Form.Control.Feedback>
-                  </Form.Group>
-                  <Form.Group as={Col} md="3" controlId="validationCustom04">
-                    <Form.Label>State</Form.Label>
-                    <Form.Control type="text" placeholder="State" required />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a valid state.
-                    </Form.Control.Feedback>
-                  </Form.Group>
-                  <Form.Group as={Col} md="3" controlId="validationCustom05">
-                    <Form.Label>Zip</Form.Label>
-                    <Form.Control type="text" placeholder="Zip" required />
-                    <Form.Control.Feedback type="invalid">
-                      Please provide a valid zip.
-                    </Form.Control.Feedback>
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="7"
+                    controlId="formBasicEmail"
+                  >
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      aria-describedby="inputGroupPrepend"
+                      required
+                    />
+                    <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text>
                   </Form.Group>
                 </Row>
-                <Form.Group className="mb-3">
-                  <Form.Check
-                    required
-                    label="Agree to terms and conditions"
-                    feedback="You must agree before submitting."
-                  />
-                </Form.Group>
-                <Button type="submit">Submit form</Button>
+                <Row>
+                  <Form.Group
+                    className="mb-3"
+                    controlId="formBasicPassword"
+                    as={Col}
+                    md="5"
+                  >
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      aria-describedby="inputGroupPrepend"
+                      required
+                    />
+                  </Form.Group>
+
+                  <Form.Group className="mb-3" controlId="" as={Col}>
+                    <Form.Label>Select Account Type</Form.Label>
+
+                    <FloatingLabel
+                      controlId="floatingSelectGrid"
+                      label="Works with selects"
+                      
+                    >
+                      <Form.Select aria-label="Floating label select example" required>
+                        <option>Open this select menu</option>
+                        <option value="1">Artist</option>
+                        <option value="2">Venue</option>
+                      </Form.Select>
+                    </FloatingLabel>
+                  </Form.Group>
+                </Row>
+
+                <Row className="mb-3 ml-3"></Row>
+
+                <Button className="bg-warning" type="submit">
+                  Submit form
+                </Button>
               </Form>
             </Card.Text>
             <Card.Text>Last updated 3 mins ago</Card.Text>

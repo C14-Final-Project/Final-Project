@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 
 function Home() {
   return (
-    <div className='bg-dark'>
+    <div className="bg-dark">
       <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
         <Card.Img
           className=""
@@ -14,8 +14,10 @@ function Home() {
         />
 
         <Card.ImgOverlay className=" bg-dark ">
-          <Container className="d-flex flex-column justify-content-center align-items-center">
-            <Card.Title className="">Performance</Card.Title>
+          <Container className="text-center">
+            <Card.Title className="Justify-content-center align-items-center">
+              Performance
+            </Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This content is a little bit

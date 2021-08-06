@@ -16,43 +16,43 @@ import Register from './views/Register'
 
 const App = () => {
 	return (
-		<div>
-			<Router>
-				<Navbar1 />
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
+    <div>
+      <Router>
+        <Navbar1 />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-					<Route path="/users/:username">
-						<UserAccount />
-					</Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
 
-					<Route path="/:location/:sidebarSelection/:postid">
-						<SinglePost/>
-					</Route>
+          <Route path="/users/:username">
+            <UserAccount />
+          </Route>
 
-					<Route path="/:location/:sidebarSelection">
-						<LocationDay />
-					</Route>
+          <Route path="/:location/:sidebarSelection/:postid">
+            <SinglePost />
+          </Route>
 
-					<Route path="/:location/post">
-						<MakePost />
-					</Route>
+          <Route path="/:location/:sidebarSelection">
+            <LocationDay />
+          </Route>
 
-					<Route path="/:location">
-						<Location />
-					</Route>
+          <Route path="/:location/post">
+            <MakePost />
+          </Route>
 
+          <Route path="/:location">
+            <Location />
+          </Route>
+        </Switch>
 
-
-
-				</Switch>
-
-				<Footer />
-			</Router>
-		</div>
-	);
+        <Footer />
+      </Router>
+    </div>
+  );
 };
 
 export default App;
