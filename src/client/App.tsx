@@ -27,6 +27,10 @@ const App = () => {
 						<UserAccount />
 					</Route>
 
+					<Route exact path="/:location/:sidebarSelection/post">
+						<MakePost />
+					</Route>
+
 					<Route path="/:location/:sidebarSelection/:postid">
 						<SinglePost/>
 					</Route>
@@ -35,9 +39,7 @@ const App = () => {
 						<LocationDay />
 					</Route>
 
-					<Route path="/:location/post">
-						<MakePost />
-					</Route>
+					
 
 					<Route path="/:location">
 						<Location />
