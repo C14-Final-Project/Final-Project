@@ -126,8 +126,8 @@ const Location = (props: LocationProps) => {
                         <ul className="list-group  list-group-flush">
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
                             <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/post`}><button id='makeButton' type='button' className='custonButton btn text-white border border-white btn-dark'>Make Post</button></Link></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='postButton' type='button' className='customButton btn text-white border border-white btn-dark'>View Posts</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/post`}><button id='makeButton' type='button' className='custonButton btn text-white border border-white btn-dark'>Make Post 🡆</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='postButton' type='button' className='customButton btn text-white border border-white btn-dark'>View Posts 🡆</button></Link></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
