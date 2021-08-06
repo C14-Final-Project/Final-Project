@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const LocationDay = () => {
+const MakePost = () => {
     return(
         <div>
             <p>workin on it</p>
@@ -8,4 +8,4 @@ const LocationDay = () => {
     )
 }
 
-export default LocationDay
+export default MakePost
