@@ -78,6 +78,7 @@ const Location = (props: LocationProps) => {
             }
         } else {
             setLength('0')
+            setSelectedDate(value)
         }
     }
 
