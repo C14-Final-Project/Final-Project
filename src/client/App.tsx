@@ -8,6 +8,7 @@ import UserAccount from './views/UserAccount';
 import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost'
+import Register from './views/Register'
 
 
 
