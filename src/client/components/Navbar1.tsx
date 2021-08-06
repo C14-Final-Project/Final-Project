@@ -41,7 +41,7 @@ function Navbar1() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="#link">Login</Nav.Link>
-                <Nav.Link href="#link">Register</Nav.Link>
+                <NavLink style={{ textDecoration: "none" }} to={'/register'} className='link' activeClassName="active"><a className="nav-link" href="#">Register</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="#">{processing.city}{comma.comma} {processing.state}</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={`/users/user`} className='link' activeClassName="active"><a className="nav-link" href="#">Profile</a></NavLink>
               </Nav>

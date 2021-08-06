@@ -3,13 +3,13 @@ import db from "../db";
 
 const router = express.Router();
 
-router.get('/state=:state&city=:city', async (req, res) => { 
+router.get('/:location', async (req, res) => { 
   const locationEventName: string = req.params.locationEventName; 
   const posts = await db.Posts.all(locationEventName);
   res.json(posts);
 });
 
-router.get('/state=:state&city=:city/:id?', async (req, res) => { 
+router.get('/:location/:id?', async (req, res) => { 
   const id: string = req.params.id;
   const locationEventName: string = req.params.locationEventName;
   if (id) {
@@ -23,7 +23,7 @@ router.get('/state=:state&city=:city/:id?', async (req, res) => {
   }
 });
 
-router.post('/state=:state&city=:city', async (req, res) => {
+router.post('/:location', async (req, res) => {
   const postObj: post = req.body;
   try {
     await db.Posts.post(postObj.userid, postObj.title, postObj.text, postObj.locationEventName, postObj.dayEvent, postObj.timeEvent, postObj.dayPosted, postObj.timePosted, postObj.moneyAmount);
@@ -33,7 +33,7 @@ router.post('/state=:state&city=:city', async (req, res) => {
   }
 });
 
-router.put('/state=:state&city=:city/:id', async (req, res) => {
+router.put('/:location/:id', async (req, res) => {
   const id: string = req.params.id;
   const postObj: post = req.body;
   try {

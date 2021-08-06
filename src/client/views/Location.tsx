@@ -13,6 +13,9 @@ const Location = (props: LocationProps) => {
 
     const { location } = useParams<{ location: string }>();
 
+    const [deconstructedDay, setDeconstructedDay] = useState<string>()
+    const [deconstructedMonth, setDeconstructedMonth] = useState<string>()
+    const [deconstructedYear, setDeconstructedYear] = useState<string>()
     const [post, setPost] = useState('')
     const [be, setBe] = useState('')
     const [length, setLength] = useState<string>('')
@@ -48,6 +51,19 @@ const Location = (props: LocationProps) => {
         let yearString = yearNum.toString()
         setTime(y)
         setDate2(`${yearString}-${monthString}-${dayString}`)
+    };
+
+    const deconstructDate = (decDate) => {
+        let x = new Date(decDate)
+        let dayNum = (x.getDate())
+        let dayString = dayNum.toString()
+        let monthNum = (x.getMonth() + 1)
+        let monthString = monthNum.toString()
+        let yearNum = x.getFullYear()
+        let yearString = yearNum.toString()
+        setDeconstructedDay(`${dayString}`)
+        setDeconstructedMonth(`${monthString}`)
+        setDeconstructedYear(`${yearString}`)
     };
 
     const datesToAddContentTo = ['Wed Sep 15 2021', 'Thu Sep 16 2021', 'Sat Aug 07 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', dateTest.toDateString(), dateTest.toDateString()];
@@ -91,6 +107,7 @@ const Location = (props: LocationProps) => {
         setSidebarSelection(selectedDate.toLocaleDateString())
         setColon(":")
         bruhFunc(selectedDate)
+        deconstructDate(selectedDate)
     }, [selectedDate]);
 
     useEffect(() => {
@@ -126,13 +143,13 @@ const Location = (props: LocationProps) => {
                         <ul className="list-group  list-group-flush">
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
                             <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/post`}><button id='makeButton' type='button' className='custonButton btn text-white border border-white btn-dark'>Make Post</button></Link></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='postButton' type='button' className='customButton btn text-white border border-white btn-dark'>View Posts</button></Link></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' type='button' className='custonButton btn text-white border border-white btn-dark'>Make Post 🡆</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='postButton' type='button' className='customButton btn text-white border border-white btn-dark'>View Posts 🡆</button></Link></li>
                         </ul>
                     </div>
                 </div>
