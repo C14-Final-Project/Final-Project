@@ -6,8 +6,6 @@ import { useParams } from 'react-router-dom'
 import Calendar from 'react-calendar'
 import '../utils/Calendar.css';
 import '../utils/Location.css';
-import isSameDay from 'react-calendar'
-import { indexOf } from '../../../webpack.config';
 
 export interface LocationProps { }
 
@@ -26,7 +24,6 @@ const Location = (props: LocationProps) => {
     const [time, setTime] = useState<string>()
     const [date2, setDate2] = useState<string>()
     const [dateTest, onDateTest] = useState(new Date);
-    const [dateTest2, onDateTest2] = useState(new Date);
     const [sidebarArray, setSidebarArray] = useState([{
         date: ''
     }])
@@ -53,7 +50,7 @@ const Location = (props: LocationProps) => {
         setDate2(`${yearString}-${monthString}-${dayString}`)
     };
 
-    const datesToAddContentTo = ['Sat Aug 07 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', dateTest.toDateString(), dateTest.toDateString()];
+    const datesToAddContentTo = ['Wed Sep 15 2021', 'Thu Sep 16 2021', 'Sat Aug 07 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', dateTest.toDateString(), dateTest.toDateString()];
 
     const bruh = ({ date, view }) => view === 'month' && date.toDateString() === datesToAddContentTo.find(dDate => dDate == date.toDateString()) ? <div>🔥</div> : null
 
@@ -129,8 +126,8 @@ const Location = (props: LocationProps) => {
                         <ul className="list-group  list-group-flush">
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
                             <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/post`}><button id='makeButton' type='button' className='custonButton btn text-white border border-white btn-dark'>Make Post</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='postButton' type='button' className='customButton btn text-white border border-white btn-dark'>View Posts</button></Link></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>

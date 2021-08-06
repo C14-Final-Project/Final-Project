@@ -23,6 +23,18 @@ const App = () => {
 						<UserAccount />
 					</Route>
 
+					<Route path="/:location/:sidebarSelection/:postid">
+						<Location />
+					</Route>
+
+					<Route path="/:location/:sidebarSelection">
+						<Location />
+					</Route>
+
+					<Route path="/:location/post">
+						<Location />
+					</Route>
+
 					<Route path="/:location">
 						<Location />
 					</Route>
