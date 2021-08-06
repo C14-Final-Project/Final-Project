@@ -3,3 +3,6 @@ export interface nameProps {
     email: string
 }
 
+export interface prePost {
+    date: string
+}

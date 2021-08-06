@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { nameProps } from '../utils/types';
+import { prePost } from '../utils/types';
 import { useParams } from 'react-router-dom'
 import Calendar from 'react-calendar'
 import '../utils/Calendar.css';
 import '../utils/Location.css';
+import isSameDay from 'react-calendar'
+import { indexOf } from '../../../webpack.config';
 
 export interface LocationProps { }
 
@@ -12,6 +15,9 @@ const Location = (props: LocationProps) => {
 
     const { location } = useParams<{ location: string }>();
 
+    const [post, setPost] = useState('')
+    const [be, setBe] = useState('')
+    const [length, setLength] = useState<string>('')
     const [disabledDates, setDisabledDates] = useState([]);
     const [date, onChange] = useState(new Date);
     const [selectedDate, setSelectedDate] = useState<Date>(new Date)
@@ -19,6 +25,11 @@ const Location = (props: LocationProps) => {
     const [colon, setColon] = useState<string>('')
     const [time, setTime] = useState<string>()
     const [date2, setDate2] = useState<string>()
+    const [dateTest, onDateTest] = useState(new Date);
+    const [dateTest2, onDateTest2] = useState(new Date);
+    const [sidebarArray, setSidebarArray] = useState([{
+        date: ''
+    }])
 
     const getDaysArray = (start: any, end: any) => {
         for (var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
@@ -32,19 +43,43 @@ const Location = (props: LocationProps) => {
     const getTime = () => {
         let x = new Date()
         let y: string = x.toLocaleTimeString()
-
         let dayNum = (x.getDate() - 1)
         let dayString = dayNum.toString()
         let monthNum = (x.getMonth() + 1)
         let monthString = monthNum.toString()
         let yearNum = x.getFullYear()
         let yearString = yearNum.toString()
-        console.log(monthString)
         setTime(y)
         setDate2(`${yearString}-${monthString}-${dayString}`)
-        
-        console.log(y)
     };
+
+    const datesToAddContentTo = ['Sat Aug 07 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', 'Fri Aug 06 2021', dateTest.toDateString(), dateTest.toDateString()];
+
+    const bruh = ({ date, view }) => view === 'month' && date.toDateString() === datesToAddContentTo.find(dDate => dDate == date.toDateString()) ? <div>🔥</div> : null
+
+    const bruhFunc = (value: Date) => {
+        if (value.toDateString() === datesToAddContentTo.find(dDate => dDate == value.toDateString())) {
+            setSidebarArray([{
+                date: ''
+            }])
+            setSelectedDate(value)
+            let postArray = []
+            for (let i = 0; i < datesToAddContentTo.length; i++) {
+                if (datesToAddContentTo[i] == value.toDateString()) {
+                    let post = {
+                        date: value.toDateString()
+                    }
+                    postArray.push(post)
+                    setSidebarArray([...sidebarArray, post])
+                    let x: number = postArray.length
+                    let y: string = x.toString()
+                    setLength(y)
+                }
+            }
+        } else {
+            setLength('0')
+        }
+    }
 
     useEffect(() => {
         getTime()
@@ -57,6 +92,7 @@ const Location = (props: LocationProps) => {
     useEffect(() => {
         setSidebarSelection(selectedDate.toLocaleDateString())
         setColon(":")
+        bruhFunc(selectedDate)
     }, [selectedDate]);
 
     useEffect(() => {
@@ -65,6 +101,16 @@ const Location = (props: LocationProps) => {
             showMe.classList.remove('invisible')
         }
     });
+
+    useEffect(() => {
+        if (length == '1') {
+            setBe('is')
+            setPost('post')    
+        } else {
+            setBe('are')
+            setPost('posts')
+        }
+    }, [length]);
 
     return (
         <div className='custom'>
@@ -81,7 +127,7 @@ const Location = (props: LocationProps) => {
                     <div className="ms-2 card">
                         <ul className="list-group  list-group-flush">
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
-                            <li className="list-group-item bg-dark pl-2"></li>
+                            <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
@@ -95,17 +141,17 @@ const Location = (props: LocationProps) => {
                 <div className='col-lg-10 col-md-9 col-sm-9 col-xs-12'>
                     <Calendar className='react-calendar  bg-dark btn border w-100'
                         tileClassName='btn  border rounded-0 p-2'
-                        onClickDay={(value) => setSelectedDate(value)}
+                        onClickDay={(value) => bruhFunc(value)}
                         onChange={onChange}
                         value={date}
+                        tileContent={bruh}
                         tileDisabled={({ date, view }) =>
-                            (view === 'month') && // Block day tiles only
+                            (view === 'month') &&
                             disabledDates.some(disabledDate =>
                                 date.getFullYear() === disabledDate.getFullYear() &&
                                 date.getMonth() === disabledDate.getMonth() &&
                                 date.getDate() === disabledDate.getDate()
                             )}
-
                     />
                 </div>
                 <div className='col-1'></div>
