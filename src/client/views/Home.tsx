@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 
 function Home() {
   return (
-    <>
+    <div className='bg-dark'>
       <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
         <Card.Img
           className=""
@@ -25,7 +25,7 @@ function Home() {
           </Container>
         </Card.ImgOverlay>
       </Card>
-    </>
+    </div>
   );
 }
 

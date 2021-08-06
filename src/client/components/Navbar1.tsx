@@ -43,6 +43,7 @@ function Navbar1() {
                 <Nav.Link href="#link">Login</Nav.Link>
                 <Nav.Link href="#link">Register</Nav.Link>
                 <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="#">{processing.city}{comma.comma} {processing.state}</a></NavLink>
+                <NavLink style={{ textDecoration: "none" }} to={`/users/user`} className='link' activeClassName="active"><a className="nav-link" href="#">Profile</a></NavLink>
               </Nav>
             </Navbar.Collapse>
           </Container>
