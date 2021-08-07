@@ -2,10 +2,11 @@ import * as React from "react";
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { newPost } from '../utils/types';
+import { nameProps } from '../utils/types';
 
 
 
-const MakePost = () => {
+const MakePost = (props: nameProps) => {
 
     const { location } = useParams<{ location: string }>();
     const { sidebarSelection } = useParams<{ sidebarSelection: string }>();
@@ -153,9 +154,9 @@ const MakePost = () => {
                                 <input placeholder="Hour" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHourEvent(e.target.value)} value={timeEvent} type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
                                 <span className="input-group-text">:</span>
                                 <input placeholder="Min" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMinEvent(e.target.value)} value={timeEvent} type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
-                                <select onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setAMPM(e.target.value)} className="rounded-end custom-select" id="inputGroupSelect03">
-                                    <option value="1" selected>PM</option>
-                                    <option value="2">AM</option>
+                                <select onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setAMPM(e.target.value)} value={ampm} className="rounded-end custom-select" id="inputGroupSelect03">
+                                    <option value="PM" selected>PM</option>
+                                    <option value="AM">AM</option>
                                 </select>
                             </div>
                         </div>

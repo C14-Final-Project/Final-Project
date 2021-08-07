@@ -9,41 +9,60 @@ import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost'
 import Register from './views/Register'
+import { nameProps } from './utils/types';
+import { useHistory } from 'react-router-dom'
+import { userContext } from "./utils/userContext"
+import { createContext } from "react";
+import { useState, useEffect } from 'react';
 
 
 
+const App = (props: nameProps) => {
 
+	const history = useHistory()
 
-const App = () => {
+	const [username, setUsername] = useState(props.username)
+
+	const propsTest: nameProps = {
+		username: username,
+		email: 'test',
+		profileType: 'test',
+		auth: true
+	};
+
 	return (
 		<div>
 			<Router>
-				<Navbar1 />
+			<userContext.Provider value={{username, setUsername}}>
+				<Navbar1 username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+				
 				<Switch>
 					<Route exact path="/">
-						<Home />
+						<Home username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+					</Route>
+
+					<Route path="/register">
+						<Register username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
 					</Route>
 
 					<Route path="/users/:username">
-						<UserAccount />
+						<UserAccount username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
 					</Route>
 
 					<Route exact path="/:location/:sidebarSelection/post">
-						<MakePost />
+						<MakePost username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
 					</Route>
 
 					<Route path="/:location/:sidebarSelection/:postid">
-						<SinglePost/>
+						<SinglePost username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
 					</Route>
 
 					<Route path="/:location/:sidebarSelection">
-						<LocationDay />
+						<LocationDay username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
 					</Route>
 
-					
-
 					<Route path="/:location">
-						<Location />
+						<Location username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
 					</Route>
 
 
@@ -52,6 +71,7 @@ const App = () => {
 				</Switch>
 
 				<Footer />
+				</userContext.Provider>
 			</Router>
 		</div>
 	);
