@@ -27,6 +27,9 @@ const App = () => {
           <Route exact path="/Login">
             <Login />
           </Route>
+          <Route exact path="/Register">
+            <Register />
+          </Route>
           <Route path="/users/:username">
             <UserAccount />
           </Route>
