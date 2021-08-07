@@ -1,12 +1,13 @@
 export interface nameProps {
     username: string,
-    email: string
+    email: string,
+    profileType: string,
+    auth: boolean,
 }
 
 export interface prePost {
-    date: string
+    date: string,
 }
-
 
 export interface newPost {
     userid: number,
@@ -18,4 +19,17 @@ export interface newPost {
     dayPosted: string,
     timePosted: string,
     moneyAmount: string,
+}
+
+export interface newUser {
+    username: string,
+    email: string,
+    password: string,
+    profileType: string,
+}
+
+export interface Context {
+    username: string,
+    email: string,
+    profileType: string,
 }

@@ -169,19 +169,21 @@ const UserAccount = (props: nameProps) => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
 
 
-            </div>
-            </div>
-            </div>
+            
+        
          
 
-   
-</>
-);
+
+
+    </>
+  );
 }
 
 export default UserAccount;
-    
-      
+
