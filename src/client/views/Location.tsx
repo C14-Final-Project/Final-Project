@@ -138,8 +138,8 @@ const Location = (props: LocationProps) => {
                 <div className='bg-dark border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
             </div>
             <div style={{ margin: "auto" }} className='row pt-2 pb-5'>
-                <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
-                    <div className="ms-2 card">
+                <div className='d-none d-sm-block col-lg-2 col-md-3 '>
+                    <div className="ms-2 card updateCard">
                         <ul className="list-group  list-group-flush">
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
                             <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>

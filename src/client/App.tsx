@@ -9,6 +9,7 @@ import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost'
 import Register from './views/Register'
+import Login from './views/Login'
 
 
 
@@ -16,45 +17,41 @@ import Register from './views/Register'
 
 const App = () => {
 	return (
-		<div>
-			<Router>
-				<Navbar1 />
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
+    <div>
+      <Router>
+        <Navbar1 />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/Login">
+            <Login />
+          </Route>
+          <Route path="/users/:username">
+            <UserAccount />
+          </Route>
 
-					<Route path="/users/:username">
-						<UserAccount />
-					</Route>
+          <Route exact path="/:location/:sidebarSelection/post">
+            <MakePost />
+          </Route>
 
-					<Route exact path="/:location/:sidebarSelection/post">
-						<MakePost />
-					</Route>
+          <Route path="/:location/:sidebarSelection/:postid">
+            <SinglePost />
+          </Route>
 
-					<Route path="/:location/:sidebarSelection/:postid">
-						<SinglePost/>
-					</Route>
+          <Route path="/:location/:sidebarSelection">
+            <LocationDay />
+          </Route>
 
-					<Route path="/:location/:sidebarSelection">
-						<LocationDay />
-					</Route>
+          <Route path="/:location">
+            <Location />
+          </Route>
+        </Switch>
 
-					
-
-					<Route path="/:location">
-						<Location />
-					</Route>
-
-
-
-
-				</Switch>
-
-				<Footer />
-			</Router>
-		</div>
-	);
+        <Footer />
+      </Router>
+    </div>
+  );
 };
 
 export default App;
