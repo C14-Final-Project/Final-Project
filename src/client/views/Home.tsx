@@ -36,11 +36,7 @@ const Home = (props: nameProps) => {
               Performance
             </Card.Title>
             <Card.Text>
-<<<<<<< HEAD
-              Performance connects 
-=======
               {props.profileType} {props.email} {props.username}
->>>>>>> fb42b70e9a624fb7e9aea58aaea3d7656026e5f2
             </Card.Text>
             <Card.Text>Last updated 3 mins ago</Card.Text>
           </Container>
