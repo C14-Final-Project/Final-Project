@@ -3,10 +3,10 @@ import db from "../db";
 
 const router = express.Router();
 
-router.get('/email=:email', async (req, res) => { 
-    const email: string = req.params.email;
-    if (email) {
-      const id = await db.Users.getUserID(email);
+router.get('/username=:username', async (req, res) => { 
+    const username: string = req.params.username;
+    if (username) {
+      const id = await db.Users.getUserID(username);
       res.json(id[0].id);
     } else {
       console.log('error')

@@ -1,14 +1,15 @@
-import * as React from "react";
+import React, { useState, useEffect, useContext } from 'react'
+import { userContext } from '../utils/userContext'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import { newPost } from '../utils/types';
 import { nameProps } from '../utils/types';
 
 
 
-const MakePost = (props: nameProps) => {
-
-    const { location } = useParams<{ location: string }>();
+const MakePost = () => {
+    
+    const {propsObj, setPropsObj} = useContext(userContext)
+    const { locationEventName } = useParams<{ locationEventName: string }>();
     const { sidebarSelection } = useParams<{ sidebarSelection: string }>();
 
     const fontBuddy = {
@@ -29,18 +30,14 @@ const MakePost = (props: nameProps) => {
 
     const [hourEvent, setHourEvent] = useState<string>()
     const [minEvent, setMinEvent] = useState<string>()
-    const [ampm, setAMPM] = useState<string>()
-    const [email, setEmail] = useState('2@test.com')
+    const [ampm, setAMPM] = useState<string>('PM')
     const [array, setArray] = useState([])
     const [confirm, setConfirm] = useState(false)
     const [userid, setUserid] = useState<number>()
     const [title, setTitle] = useState<string>()
     const [text, setText] = useState<string>()
-    const [locationEventName, setLocationEventName] = useState<string>(location)
     const [dayEvent, setDayEvent] = useState<string>()
     const [timeEvent, setTimeEvent] = useState<string>()
-    const [dayPosted, setDayPosted] = useState<string>()
-    const [timePosted, setTimePosted] = useState<string>()
     const [moneyAmount, setMoneyAmount] = useState<string>()
     const [prePost, setPrePost] = useState<newPost>({
         userid: userid,
@@ -56,7 +53,7 @@ const MakePost = (props: nameProps) => {
 
     useEffect(() => {
         (async () => {
-            let res = await fetch(`/api/users/email=${email}`);
+            let res = await fetch(`/api/users/username=${propsObj.username}`);
             let getUserid = await res.json();
             setUserid(getUserid);
             let preDateString = new Date(sidebarSelection)
@@ -87,10 +84,14 @@ const MakePost = (props: nameProps) => {
         sendPost();
     }, [prePost])
 
+    useEffect(() => {
+        console.log(ampm)
+    }, [ampm])
+
 
     const sendPost = async () => {
         if (confirm) {
-            let res = await fetch(`/api/posts/${location}`, {
+            let res = await fetch(`/api/posts/${locationEventName}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -154,7 +155,7 @@ const MakePost = (props: nameProps) => {
                                 <input placeholder="Hour" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setHourEvent(e.target.value)} value={timeEvent} type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
                                 <span className="input-group-text">:</span>
                                 <input placeholder="Min" onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMinEvent(e.target.value)} value={timeEvent} type="text" className="form-control" aria-label="Amount (to the nearest dollar)" />
-                                <select onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setAMPM(e.target.value)} value={ampm} className="rounded-end custom-select" id="inputGroupSelect03">
+                                <select id='test' onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setAMPM(e.target.value)} className="rounded-end custom-select">
                                     <option value="PM" selected>PM</option>
                                     <option value="AM">AM</option>
                                 </select>
