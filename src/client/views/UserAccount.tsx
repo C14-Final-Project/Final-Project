@@ -4,11 +4,41 @@ import Image from 'react-bootstrap/Image';
 import { nameProps } from '../utils/types';
 import { useEffect, useState, useContext } from 'react'
 import { userContext } from '../utils/userContext'
-
+import { useParams } from 'react-router';
 
 const UserAccount = () => {
 
   const { propsObj, setPropsObj } = useContext(userContext)
+  const { username } = useParams<{ username: string }>();
+  const [profileObject, setProfileObject] = useState({
+    userid: null,
+    username: username,
+    profileName: '',
+    profileLocation: '',
+    profileBio: '',
+    profileType: '',
+    profilePhoto: '',
+    popularity: '',
+    tag1: '',
+    tag2: '',
+    tag3: '',
+  })
+
+  const getProfile = async () => {
+    try {
+        const res = await fetch(`/api/users/${username}`);
+        const info = await res.json();
+        setProfileObject(info)
+        console.log(info)
+        console.log(profileObject)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+useEffect(() => {
+  getProfile();
+}, [])
 
   return (
     <>
@@ -182,4 +212,4 @@ const UserAccount = () => {
   );
 }
 
-export default UserAccount;
+export default UserAccount
