@@ -56,13 +56,19 @@
   }
   .react-calendar__month-view__weekdays {
     text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
     font-size: 0.75em;
+    text-decoration: underline;
     color: white;
   }
   .react-calendar__month-view__weekdays__weekday {
     padding: 0.5em;
+    border-bottom: black;
+    text-decoration: double; 
+    background: black;
+  }
+  .react-calendar__month-view__weekdays__weekday:hover {
+    cursor: auto;
+    
   }
   .react-calendar__month-view__weekNumbers {
     font-weight: bold;
