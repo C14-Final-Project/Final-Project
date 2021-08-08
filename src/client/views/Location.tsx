@@ -7,9 +7,7 @@ import Calendar from 'react-calendar'
 import '../utils/Calendar.css';
 import '../utils/Location.css';
 
-export interface LocationProps { }
-
-const Location = (props: LocationProps) => {
+const Location = (props: nameProps) => {
 
     const { location } = useParams<{ location: string }>();
 
@@ -30,6 +28,26 @@ const Location = (props: LocationProps) => {
     const [sidebarArray, setSidebarArray] = useState([{
         date: ''
     }])
+
+    const hoverMakeEnter = () => {
+        let x = document.querySelector('#makeButton')
+        x.classList.add('border-white')
+    }
+
+    const hoverMakeLeave = () => {
+        let x = document.querySelector('#makeButton')
+        x.classList.remove('border-white')
+    }
+
+    const hoverViewEnter = () => {
+        let x = document.querySelector('#viewButton')
+        x.classList.add('border-white')
+    }
+
+    const hoverViewLeave = () => {
+        let x = document.querySelector('#viewButton')
+        x.classList.remove('border-white')
+    }
 
     const getDaysArray = (start: any, end: any) => {
         for (var arr = [], dt = new Date(start); dt <= end; dt.setDate(dt.getDate() + 1)) {
@@ -143,13 +161,13 @@ const Location = (props: LocationProps) => {
                         <ul className="list-group  list-group-flush">
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
                             <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>
+                            <li className="list-group-item bg-dark pl-2">{props.username}</li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' type='button' className='custonButton btn text-white border border-white btn-dark'>Make Post 🡆</button></Link></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='postButton' type='button' className='customButton btn text-white border border-white btn-dark'>View Posts 🡆</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' onMouseEnter={() => hoverMakeEnter()} onMouseLeave={() => hoverMakeLeave()} type='button' className='btn text-white ps-2 pe-2 btn-dark'>Make Post  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='viewButton' type='button' onMouseEnter={() => hoverViewEnter()} onMouseLeave={() => hoverViewLeave()} className='btn text-white ps-2 pe-2 btn-dark'>View Posts  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
                         </ul>
                     </div>
                 </div>

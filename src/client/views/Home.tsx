@@ -2,8 +2,25 @@ import * as React from "react";
 // import Image from 'react-bootstrap/Image'
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import { nameProps } from "../utils/types";
+import { useEffect, useState, useContext } from 'react'
+import { userContext } from "../utils/userContext"
 
-function Home() {
+const Home = (props: nameProps) => {
+
+  const {username, setUsername} = useContext(userContext)
+
+  const testfunc = () => {
+    if (props.auth == true) {
+      window.history.replaceState("data", "Title", "/");
+      setUsername(props.username)
+    }
+  }
+
+  useEffect(() => {
+    testfunc()
+  }, [])
+  
   return (
     <div className="bg-dark">
       <Card className="bg-dark text-white d-flex justify-content-center align-items-center " >
@@ -19,9 +36,7 @@ function Home() {
               Performance
             </Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
+              {props.profileType} {props.email} {props.username}
             </Card.Text>
             <Card.Text>Last updated 3 mins ago</Card.Text>
           </Container>
