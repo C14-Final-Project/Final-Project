@@ -33,18 +33,7 @@ const UserAccount = () => {
                     </div>
                   </div>
 
-                  username varchar(255) not null,
-                  email varchar(255) not null,
-                  password text not null,
-                  profileType varchar(20) not null,
-                  profileName varchar(100) null,
-                  profileLocation varchar(200) null,
-                  profileBio varchar(3000) null,
-                  profilePhoto varchar(1000) null,
-                  popularity int null,
-                  tag1 varchar(50) null,
-                  tag2 varchar(50) null,
-                  tag3 varchar(50) null,
+
 
 
                   <div className="card-body">
