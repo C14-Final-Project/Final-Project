@@ -1,21 +1,14 @@
-import * as React from 'react';
-import '../utils/UserAccount.css';
 
-import Image from 'react-bootstrap/Image';
+
 import { nameProps } from '../utils/types';
+import React, { useState, useEffect, useContext } from 'react'
+import { userContext } from '../utils/userContext'
 
 
-const UserAccount = (props: nameProps) => {
-  
-  return(
-   <>
-<div className=" userCon container">
 
-    <div className="main-body">     
-          
-              <div className="bg">            
-              <div className="row gutters-sm">
+const UserAccount = () => {
 
+  const {propsObj, setPropsObj} = useContext(userContext)
 
 
   
