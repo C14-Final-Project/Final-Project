@@ -22,9 +22,65 @@ const App = () => {
 	
 	const [defaultObjState, setDefaultObjState] = useState({
 		invisible: 'invisible',
-		invisible2: ''
-	  })
+		invisible2: '',
+		auth: false
+	})
+	
+	const [next, setNext] = useState(false)
 	const [propsObj, setPropsObj] = useState(defaultObjState)
+	const [username, setUsername] = useState(propsObj.username)
+	const [password, setPassword] = useState('')
+	const [profileType, setProfileType] = useState<string>(propsObj.profileType)
+	const [auth, setAuth] = useState(propsObj.auth)
+	const [session, setSession] = useState(false)
+	const [authObjState, setAuthObjState] = useState({
+	  username: username,
+	  profileType: 'artist',
+	  auth: true,
+	  invisible: '',
+	  invisible2: 'invisible'
+	})
+  	
+	const getSession = async () => {
+	  try {
+		const res = await fetch('/api/session/0');
+		const sessionName = await res.json();
+		setSession(true)
+		
+		if (sessionName.auth == true) {
+			setUsername(sessionName.username)
+			setProfileType(sessionName.profileType)
+			setAuth(sessionName.auth)
+		}
+		console.log(sessionName)
+	  } catch (error) {
+		console.log(error);
+	  }
+	}
+  
+	useEffect(() => {
+	  if (auth == true) {
+		setNext(true)
+		setAuthObjState({
+			username: username,
+			profileType: profileType,
+			auth: true,
+			invisible: '',
+			invisible2: 'invisible'
+		})
+		console.log('fuck')
+	  }
+	}, [auth])
+  
+	useEffect(() => {
+		if (next == true) {
+			setPropsObj(authObjState)
+		}
+	}, [next])
+  
+	useEffect(() => {
+	  getSession()
+	}, [])
 
 	return (
     <div>

@@ -7,7 +7,6 @@ import Calendar from 'react-calendar'
 import '../utils/Calendar.css';
 import '../utils/Location.css';
 import { userContext } from '../utils/userContext'
-import UserProfile from '../../server/utils/Session';
 
 
 
@@ -108,9 +107,7 @@ const Location = () => {
         return arr;
     };
 
-    const dateArray = getDaysArray(new Date(`1971-01-01 ${time}`), new Date(`${date2} ${time}`));
-
-    const dateArray2: Date[] = getDaysArray(new Date(`2016-01-01 ${time}`), new Date(`${date2} ${time}`));
+    const dateArray = getDaysArray(new Date(`1990-01-01 ${time}`), new Date(`${date2} ${time}`));
 
     const getTime = () => {
         let x = new Date()
@@ -148,7 +145,6 @@ const Location = () => {
             if (checkedDate.valueOf() > now.valueOf()) {
                 let x = {
                     dateSortValue: checkedDate.valueOf(),
-                    idk: new Date(checkedDate),
                     dayEvent: postObject.dayEvent,
                     title: postObject.title,
                     moneyAmount: postObject.moneyAmount,
@@ -205,7 +201,6 @@ const Location = () => {
         getTime();
         getPosts();
         setHeader(false)
-        console.log(UserProfile.getName())
     }, []);
 
     useEffect(() => {
@@ -265,7 +260,7 @@ const Location = () => {
             <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>
                 <div className='bg-dark border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
             </div>
-            <div style={{ margin: "auto" }} className='row pt-2 pb-5'>
+            <div style={{ margin: "auto" }} className='row updateCard pt-2 pb-5'>
                 <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
                     <div className="ms-2 card">
                         <ul className="list-group  list-group-flush">

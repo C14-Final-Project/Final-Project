@@ -1,29 +1,59 @@
 import * as express from "express";
-import { ServerSession } from '../utils/ServerSession'
+import { ServerSession }  from '../utils/ServerSession'
 
 const router = express.Router();
 
-router.get('/:id?', (req, res) => {
-    if (req.params.id) {
-        res.json(ServerSession.GetUser(req.params.id))
-    } else {
-        res.send(ServerSession.GetUsers());
-    }
+router.get('/:id?', (req, res) => { // /api/users/3
+  const id: string = req.params.id;
+
+  if (id) {
+    res.json(ServerSession.GetUser(id));
+  } else {
+    const users = ServerSession.GetUsers();
+    let userArr: user[] = []
+
+    Object.keys(users).map(key => userArr.push(
+      {
+        id: key,
+        username: users[key].username,
+      }
+    ));
+
+    userArr.pop(); // eliminate nextid property 
+
+    res.json(userArr);
+  }
 });
 
 router.post('/', (req, res) => {
-    ServerSession.CreateUser(req.body);
-    res.sendStatus(200);
-})
+  const userObj: user = req.body;
 
-router.put('/:id?', (req, res) => {
-    ServerSession.UpdateUser(req.params.id, req.body);
-    res.sendStatus(200);
-})
+  ServerSession.CreateUser(userObj);
 
-router.delete('/:id?', (req, res) => {
-    ServerSession.DeleteUser(req.params.id);
-    res.sendStatus(200);
-})
+  res.send("success");
+});
+
+//mandatory id param to tell the server which user to update
+router.put('/:id', (req, res) => {
+  const id: string = req.params.id;
+  const userObj: user = req.body;
+
+  ServerSession.UpdateUser(id, userObj);
+
+  res.send("edited successfully");
+});
+
+router.delete('/:id', (req, res) => {
+  const id: string = req.params.id;
+
+  ServerSession.DeleteUser(id);
+
+  res.send("deleted successfully");
+});
+
+interface user {
+  id?: string,
+  username: string,
+}
 
 export default router
