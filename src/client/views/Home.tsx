@@ -16,50 +16,46 @@ import { newUser } from "../utils/types"
 import '../utils/Register.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import UserProfile from '../../server/utils/Session';
 
 const Home = () => {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const { propsObj, setPropsObj } = useContext(userContext)
+  const [usernameObj, setUsernameObj] = useState({
+    username: propsObj.username
+  })
+  const [next, setNext] = useState(false)
   const [context, setContext] = useState(false)
   const [email, setEmail] = useState(propsObj.email)
   const [username, setUsername] = useState(propsObj.username)
   const [password, setPassword] = useState('')
   const [profileType, setProfileType] = useState<string>(propsObj.profileType)
-  const [auth, setAuth] = useState(false)
+  const [auth, setAuth] = useState(propsObj.auth)
   const [prePost, setPrePost] = useState<newUser>({
     username: '',
     email: '',
     password: '',
     profileType: '',
   })
-  const [session, setSession] = useState('')
-  const [authObjState, setAuthObjState] = useState({
-    username: username,
-    email: email,
-    profileType: profileType,
+  const [authRegObjState, setAuthRegObjState] = useState({
+    username: propsObj.username,
+    profileType: propsObj.profileType,
     auth: true,
     invisible: '',
     invisible2: 'invisible'
   })
+  
 
-  useEffect(() => {
-    if (auth == true) {
-      setPropsObj(authObjState)
-    }
-  }, [auth])
-
-  useEffect(() => {
-    UserProfile.setName(propsObj.username)
-  }, [])
+  console.log(propsObj)
 
 
   useEffect(() => {
     if (context == true && auth == true) {
-      setPropsObj(authObjState)
+      setPropsObj(authRegObjState)
       setContext(false)
+      
     }
+    console.log('me?')
   }, [context])
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,11 +69,15 @@ const Home = () => {
     };
     setPrePost(preUser)
     setAuth(true)
+    setNext(true)
   }
 
   useEffect(() => {
+    if (next == true) {
     sendPost();
-    createSession();
+    postSession();
+    setNext(false);
+    }
   }, [prePost])
 
   const sendPost = async () => {
@@ -90,15 +90,14 @@ const Home = () => {
         body: JSON.stringify(prePost)
       });
       if (res.ok) {
-        setAuthObjState(({
+        setAuthRegObjState(({
           username: username,
-          email: email,
           profileType: profileType,
           auth: auth,
           invisible: '',
           invisible2: 'invisible'
         }))
-        setPropsObj(authObjState)
+        setPropsObj(authRegObjState)
         setContext(true)
       } else {
         setAuth(false)
@@ -106,8 +105,25 @@ const Home = () => {
     }
   }
 
-  const createSession = () => {
-    UserProfile.setName(username);
+  const postSession = async () => {
+    if (auth == true) {
+      let res = await fetch(`/api/session`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: prePost.username,
+          auth: true,
+          profileType: prePost.profileType
+        })
+      });
+      if (res.ok) {
+        console.log('yeah')
+      } else {
+        console.log('uh oh');
+      }
+    }
   }
 
 
