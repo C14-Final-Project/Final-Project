@@ -2,7 +2,6 @@ import * as React from 'react';
 import '../utils/UserAccount.css';
 import Image from 'react-bootstrap/Image';
 import { nameProps } from '../utils/types';
-
 import { useEffect, useState, useContext } from 'react'
 import { userContext } from '../utils/userContext'
 
@@ -31,9 +30,6 @@ const UserAccount = () => {
                           <button className="btn btn-dark m-1">Booking Availability</button>
                         </div>
                       </div>
-
-
-
                     </div>
                   </div>
 
@@ -77,7 +73,6 @@ const UserAccount = () => {
                 <div className="col-md-8 mt-4">
                   <div className="card mb-3">
                     <div className="card-body">
-
                       <div className="row">
                         <div className="col-sm-3">
                           <h6 className="mb-0">Full Name</h6>
@@ -85,7 +80,6 @@ const UserAccount = () => {
                         <div className="col-sm-9 ">
                           Adam Vaughn
                         </div>
-
                       </div>
                       <hr></hr>
                       <div className="row">
@@ -105,7 +99,6 @@ const UserAccount = () => {
                           (205) 424-6933
                         </div>
                       </div>
-
                       <hr></hr>
                       <div className="row">
                         <div className="col-sm-3">
@@ -188,7 +181,6 @@ const UserAccount = () => {
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -196,10 +188,8 @@ const UserAccount = () => {
             </div>
           </div>
         </div>
-
       </div>
     </>
-
   );
 }
 
