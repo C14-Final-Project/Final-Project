@@ -54,6 +54,7 @@ const Home = () => {
     UserProfile.setName(propsObj.username)
   }, [])
 
+
   useEffect(() => {
     if (context == true && auth == true) {
       setPropsObj(authObjState)
@@ -234,7 +235,6 @@ const Home = () => {
       </div>
     );
   }
-
 }
 
 export default Home;
