@@ -52,8 +52,8 @@ const Location = () => {
         profileType: profileType,
         auth: true,
         invisible: '',
-        invisible2: 'invisible'
-        posts: calendarObject.posts
+        invisible2: 'invisible',
+        posts: calendarObject.posts,
     })
 
     const hoverMakeEnter = () => {
