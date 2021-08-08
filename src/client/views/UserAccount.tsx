@@ -1,4 +1,3 @@
-import * as React from 'react';
 import '../utils/UserAccount.css';
 
 import Image from 'react-bootstrap/Image';
@@ -17,9 +16,14 @@ const UserAccount = (props: nameProps) => {
               <div className="row gutters-sm">
 
 import { nameProps } from '../utils/types';
+import React, { useState, useEffect, useContext } from 'react'
+import { userContext } from '../utils/userContext'
 
 
-const UserAccount = (props: nameProps) => {
+
+const UserAccount = () => {
+
+  const {propsObj, setPropsObj} = useContext(userContext)
 
   return (
     <>

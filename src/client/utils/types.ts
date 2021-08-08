@@ -3,10 +3,16 @@ export interface nameProps {
     email: string,
     profileType: string,
     auth: boolean,
+    invisible: string,
+    visible: string,
 }
 
 export interface prePost {
     date: string,
+}
+
+export interface viewPosts {
+    posts: object,
 }
 
 export interface newPost {
