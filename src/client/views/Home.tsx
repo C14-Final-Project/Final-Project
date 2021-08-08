@@ -54,6 +54,32 @@ const Home = () => {
     UserProfile.setName(propsObj.username)
   }, [])
 
+  
+  return (
+    <div className="bg-dark">
+      <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
+        <Card.Img
+          className=""
+          src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
+          alt="Card image"
+        />
+
+        <Card.ImgOverlay className=" bg-dark ">
+          <Container className="text-center">
+            <Card.Title className="Justify-content-center align-items-center">
+              Performance
+            </Card.Title>
+            <Card.Text>
+              {props.profileType} {props.email} {props.username}
+            </Card.Text>
+            <Card.Text>Last updated 3 mins ago</Card.Text>
+          </Container>
+        </Card.ImgOverlay>
+      </Card>
+    </div>
+  );
+
+
 
   useEffect(() => {
     if (context == true && auth == true) {
@@ -62,7 +88,7 @@ const Home = () => {
     }
   }, [context])
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
   const newUser = () => {
     let preUser: newUser = {
@@ -235,6 +261,7 @@ const Home = () => {
       </div>
     );
   }
+
 }
 
 export default Home;
