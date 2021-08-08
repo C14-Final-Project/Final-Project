@@ -1,5 +1,4 @@
 import '../utils/UserAccount.css';
-
 import Image from 'react-bootstrap/Image';
 import { nameProps } from '../utils/types';
 
@@ -8,32 +7,11 @@ const UserAccount = (props: nameProps) => {
   
   return(
    <>
+   <body className="thebody">
 <div className="container">
-
-    <div className="main-body">     
-          
+    <div className="main-body">         
               <div className="bg">            
               <div className="row gutters-sm">
-
-import { nameProps } from '../utils/types';
-import React, { useState, useEffect, useContext } from 'react'
-import { userContext } from '../utils/userContext'
-
-
-
-const UserAccount = () => {
-
-  const {propsObj, setPropsObj} = useContext(userContext)
-
-  return (
-    <>
-      <div className="container">
-        <div className="main-body">
-
-
-
-
-          <div className="row gutters-sm">
 
             <div className="col-md-4 mb-3 mt-4">
               <div className="card">
@@ -43,13 +21,28 @@ const UserAccount = () => {
                     <div className="mt-3">
                       <h4>Adam Vaughn</h4>
                       <p className=" mb-1">Full Stack Developer/Heavy-Metal Drummer</p>
-                      <p className="font-size-sm">Birmingham, Alabama</p>
+                      <p className="font-size-sm">Username: </p>
                       <button className="btn btn-dark">Follow</button>
                       <button className="btn btn-dark m-1">Booking Availability</button>
                     </div>
                   </div>
                 </div>
               </div>
+
+              username varchar(255) not null,
+	email varchar(255) not null,
+	password text not null,
+    profileType varchar(20) not null,
+    profileName varchar(100) null,
+    profileLocation varchar(200) null,
+    profileBio varchar(3000) null,
+    profilePhoto varchar(1000) null,
+    popularity int null,
+    tag1 varchar(50) null,
+    tag2 varchar(50) null,
+    tag3 varchar(50) null,
+
+
               <div className="card-body">
               <div className="card mt-3">
                 <ul className="list-group list-group-flush">
@@ -133,7 +126,6 @@ const UserAccount = () => {
                 <div className="col-sm-6 mb-3">
                   <div className="card h-100">
                     <div className="card-body">
-
                       <h6 className="d-flex align-items-center mb-3">Tickets Sales For ™︁<i><b>Performance </b></i>  Venues</h6>
                       <small>BJCC</small>
                       <div className="progress mb-3" style={{height: "5px"}}>
@@ -154,33 +146,10 @@ const UserAccount = () => {
                       <small>Music City Center</small>
                       <div className="progress mb-3" style={{height: "5px"}}>
                         <div className="progress-bar bg-primary" role="progressbar" style={{width: "76%"}} ></div>
-
-                      <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
-                      <small>Web Design</small>
-                      <div className="progress mb-3" style={{ height: "5px" }}>
-                        <div className="progress-bar bg-primary" role="progressbar" style={{ width: "80%" }} ></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div className="progress mb-3" style={{ height: "5px" }}>
-                        <div className="progress-bar bg-primary" role="progressbar" style={{ width: "72%" }} ></div>
-                      </div>
-                      <small>One Page</small>
-                      <div className="progress mb-3" style={{ height: "5px" }}>
-                        <div className="progress-bar bg-primary" role="progressbar" style={{ width: "89%" }} ></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div className="progress mb-3" style={{ height: "5px" }}>
-                        <div className="progress-bar bg-primary" role="progressbar" style={{ width: "55%" }} ></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div className="progress mb-3" style={{ height: "5px" }}>
-                        <div className="progress-bar bg-primary" role="progressbar" style={{ width: "66%" }} ></div>
-
                       </div>
                     </div>
                   </div>
                 </div>
-
              
                 <div className="col-sm-6 mb-3">
                   <div className="card h-100">
@@ -207,29 +176,16 @@ const UserAccount = () => {
                         <div className="progress-bar bg-primary" role="progressbar" style={{width: "56%"}} ></div>
                       </div>
                     </div>
-                  </div>
-                
-                
+                  </div>                
                     </div>
                   </div>
                 </div>
-
-
-
               </div>
             </div>
           </div>
         </div>
-
-
-
-
-      </div>
-
-
-
-
-    </>
+        </body>
+        </>
   );
 }
 
