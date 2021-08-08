@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import * as React from "react";
-import "../utils/UserAccount.css";
-import Image from "react-bootstrap/Image";
-import { nameProps } from "../utils/types";
-
-import { useEffect, useState, useContext } from "react";
-import { userContext } from "../utils/userContext";
-
-const UserAccount = () => {
-  const { propsObj, setPropsObj } = useContext(userContext);
-=======
 import * as React from 'react';
 import '../utils/UserAccount.css';
 import Image from 'react-bootstrap/Image';
@@ -51,7 +39,6 @@ const UserAccount = () => {
 useEffect(() => {
   getProfile();
 }, [])
->>>>>>> 78e1ef22f877e7ca531694bdbf4cc5c94c19f715
 
   return (
     <>
@@ -85,11 +72,6 @@ useEffect(() => {
                           </button>
                         </div>
                       </div>
-<<<<<<< HEAD
-                    </div>
-                  </div>
-
-=======
 
                     </div>
                   </div>
@@ -97,7 +79,6 @@ useEffect(() => {
 
 
 
->>>>>>> 78e1ef22f877e7ca531694bdbf4cc5c94c19f715
                   <div className="card-body">
                     <div className="card mt-3">
                       <ul className="list-group list-group-flush">
@@ -208,13 +189,9 @@ useEffect(() => {
                         <div className="col-sm-3">
                           <h6 className="mb-0">Full Name</h6>
                         </div>
-<<<<<<< HEAD
-                        <div className="col-sm-9 ">Adam Vaughn</div>
-=======
                         <div className="col-sm-9 ">
                           Adam Vaughn
                         </div>
->>>>>>> 78e1ef22f877e7ca531694bdbf4cc5c94c19f715
                       </div>
                       <hr></hr>
                       <div className="row">
@@ -410,8 +387,4 @@ useEffect(() => {
   );
 };
 
-<<<<<<< HEAD
-export default UserAccount;
-=======
 export default UserAccount
->>>>>>> 78e1ef22f877e7ca531694bdbf4cc5c94c19f715
