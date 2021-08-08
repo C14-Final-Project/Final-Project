@@ -69,7 +69,7 @@ const Navbar1 = () => {
               <Nav className="me-auto">
                 <NavLink style={{ textDecoration: "none" }} to={`/${locationEventName}`} className='link mt-2' activeClassName="active"><a className="nav-link" href="">{processing.city}{comma.comma} {processing.state}</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={`/users/${propsObj.username}`} className={`${propsObj.invisible} link mt-2`} activeClassName="active"><a className="nav-link" href="">{propsObj.username}</a></NavLink>
-                <Nav.Link className={`${propsObj.invisible2} mt-2 me-2`} href="#link">Login</Nav.Link>
+                <Nav.Link className={`${propsObj.invisible2} mt-2 me-2`} href="/Login">Login</Nav.Link>
                 <Nav.Link onClick={() => goRegister()} className={`${propsObj.invisible2} ms-2 link`} style={{ textDecoration: "none" }} ><a className="nav-link" href="">Register</a></Nav.Link>
               </Nav>
             </Navbar.Collapse>
