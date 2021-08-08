@@ -15,21 +15,6 @@ const UserAccount = (props: nameProps) => {
               <div className="bg">            
               <div className="row gutters-sm">
 
-import { nameProps } from '../utils/types';
-
-
-const UserAccount = (props: nameProps) => {
-
-  return (
-    <>
-      <div className="container">
-        <div className="main-body">
-
-
-
-
-          <div className="row gutters-sm">
-
             <div className="col-md-4 mb-3 mt-4">
               <div className="card">
                 <div className="card-body">
