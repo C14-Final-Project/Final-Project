@@ -20,7 +20,7 @@ import UserProfile from '../../server/utils/Session';
 
 const Home = () => {
 
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
   const { propsObj, setPropsObj } = useContext(userContext)
   const [context, setContext] = useState(false)
   const [email, setEmail] = useState(propsObj.email)

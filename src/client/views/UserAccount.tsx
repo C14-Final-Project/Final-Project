@@ -30,6 +30,7 @@ const UserAccount = () => {
                           <button className="btn btn-dark m-1">Booking Availability</button>
                         </div>
                       </div>
+
                     </div>
                   </div>
 
@@ -173,6 +174,9 @@ const UserAccount = () => {
                     </div>
                   </div>
                 </div>
+
+
+
               </div>
             </div>
           </div>
