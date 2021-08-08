@@ -17,52 +17,47 @@ import { useState, useEffect } from 'react';
 
 
 
-const App = (props: nameProps) => {
-
-	const history = useHistory()
-
-	const [username, setUsername] = useState(props.username)
-
-	const propsTest: nameProps = {
-		username: username,
-		email: 'test',
-		profileType: 'test',
-		auth: true
-	};
+const App = () => {
+	
+	const [defaultObjState, setDefaultObjState] = useState({
+		invisible: 'invisible',
+		invisible2: ''
+	  })
+	const [propsObj, setPropsObj] = useState(defaultObjState)
 
 	return (
 		<div>
 			<Router>
-			<userContext.Provider value={{username, setUsername}}>
-				<Navbar1 username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+			<userContext.Provider value={{propsObj, setPropsObj}}>
+				<Navbar1 />
 				
 				<Switch>
 					<Route exact path="/">
-						<Home username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+						<Home />
 					</Route>
 
 					<Route path="/register">
-						<Register username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+						<Register />
 					</Route>
 
 					<Route path="/users/:username">
-						<UserAccount username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+						<UserAccount />
 					</Route>
 
-					<Route exact path="/:location/:sidebarSelection/post">
-						<MakePost username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+					<Route exact path="/:locationEventName/:sidebarSelection/post">
+						<MakePost />
 					</Route>
 
-					<Route path="/:location/:sidebarSelection/:postid">
-						<SinglePost username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+					<Route path="/:locationEventName/:sidebarSelection/:postid">
+						<SinglePost />
 					</Route>
 
-					<Route path="/:location/:sidebarSelection">
-						<LocationDay username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+					<Route path="/:locationEventName/:sidebarSelection">
+						<LocationDay />
 					</Route>
 
-					<Route path="/:location">
-						<Location username={props.username} email={props.email} profileType={props.profileType} auth={props.auth} />
+					<Route path="/:locationEventName">
+						<Location />
 					</Route>
 
 

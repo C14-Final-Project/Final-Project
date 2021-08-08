@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState, useEffect, useContext } from 'react'
+import { userContext } from '../utils/userContext'
 // import Image from 'react-bootstrap/Image'
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -9,7 +10,6 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { newUser } from "../utils/types"
-import { useEffect, useState, useContext } from 'react'
 import '../utils/Register.css'
 import { useHistory } from "react-router-dom"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -17,9 +17,11 @@ import Home from './Home'
 import { nameProps } from '../utils/types'
 import { Link } from 'react-router-dom'
 
-const Register = (props: nameProps) => {
+const Register = () => {
 
+  const {propsObj, setPropsObj} = useContext(userContext)
   const history = useHistory()
+
   const [idk, setIdk] = useState<boolean>(false)
   const [returnHome, setReturnHome] = useState<boolean>(false)
   const [confirm, setConfirm] = useState(false)
@@ -67,13 +69,7 @@ const Register = (props: nameProps) => {
     }
   }
 
-  useEffect(() => {
-    if (props.auth == true){
-      return (
-        setIdk(true) 
-      )
-    }
-  }, [])
+  
 
   
   
@@ -174,21 +170,6 @@ const Register = (props: nameProps) => {
         </Card>
       </div>
     );
-  } if (returnHome) {
-    return (
-      <Route
-          path='/'
-          component={(props: nameProps) => (
-            <Home
-            {...props} 
-            username={username} 
-            email={email} 
-            profileType={profileType}
-            auth={true} 
-            />
-          )}
-        />
-    )
   }
 }
-export default Register;
+export default Register

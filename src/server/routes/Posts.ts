@@ -3,27 +3,25 @@ import db from "../db";
 
 const router = express.Router();
 
-router.get('/:location', async (req, res) => { 
+router.get('/:locationEventName', async (req, res) => { 
   const locationEventName: string = req.params.locationEventName; 
   const posts = await db.Posts.all(locationEventName);
   res.json(posts);
 });
 
-router.get('/:location/:id?', async (req, res) => { 
+router.get('/:locationEventName/:id', async (req, res) => { 
   const id: string = req.params.id;
   const locationEventName: string = req.params.locationEventName;
   if (id) {
     const post = await db.Posts.one(id);
     if (post[0].locationEventName = locationEventName) {
       res.json(post[0]);
-    } else {
-      const posts = await db.Posts.all(locationEventName);
-      res.json(posts);
+
     }
   }
-});
+}); 
 
-router.post('/:location', async (req, res) => {
+router.post('/:locationEventName', async (req, res) => {
   const postObj: post = req.body;
   try {
     await db.Posts.post(postObj.userid, postObj.title, postObj.text, postObj.locationEventName, postObj.dayEvent, postObj.timeEvent, postObj.dayPosted, postObj.timePosted, postObj.moneyAmount);
@@ -31,9 +29,9 @@ router.post('/:location', async (req, res) => {
   } catch (error) {
     console.log(error); 
   }
-});
+}); 
 
-router.put('/:location/:id', async (req, res) => {
+router.put('/:locationEventName/:id', async (req, res) => {
   const id: string = req.params.id;
   const postObj: post = req.body;
   try {
