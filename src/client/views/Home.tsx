@@ -36,7 +36,11 @@ const Home = (props: nameProps) => {
               Performance
             </Card.Title>
             <Card.Text>
+
+              Performance connects 
+
               {props.profileType} {props.email} {props.username}
+
             </Card.Text>
             <Card.Text>Last updated 3 mins ago</Card.Text>
           </Container>

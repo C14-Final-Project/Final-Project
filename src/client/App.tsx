@@ -7,11 +7,13 @@ import Location from './views/Location';
 import UserAccount from './views/UserAccount';
 import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
-import MakePost from './views/MakePost'
-import Register from './views/Register'
+
+import MakePost from './views/MakePost';
+import Register from './views/Register';
 import { nameProps } from './utils/types';
 import { useHistory } from 'react-router-dom'
-import { userContext } from "./utils/userContext"
+import { userContext } from "./utils/userContext";
+
 import { createContext } from "react";
 import { useState, useEffect } from 'react';
 
