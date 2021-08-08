@@ -2,7 +2,6 @@ import * as React from 'react';
 import '../utils/UserAccount.css';
 import Image from 'react-bootstrap/Image';
 import { nameProps } from '../utils/types';
-
 import { useEffect, useState, useContext } from 'react'
 import { userContext } from '../utils/userContext'
 
@@ -32,22 +31,10 @@ const UserAccount = () => {
                         </div>
                       </div>
 
-
                     </div>
                   </div>
 
-                  username varchar(255) not null,
-                  email varchar(255) not null,
-                  password text not null,
-                  profileType varchar(20) not null,
-                  profileName varchar(100) null,
-                  profileLocation varchar(200) null,
-                  profileBio varchar(3000) null,
-                  profilePhoto varchar(1000) null,
-                  popularity int null,
-                  tag1 varchar(50) null,
-                  tag2 varchar(50) null,
-                  tag3 varchar(50) null,
+
 
 
                   <div className="card-body">
@@ -76,7 +63,6 @@ const UserAccount = () => {
                 <div className="col-md-8 mt-4">
                   <div className="card mb-3">
                     <div className="card-body">
-
                       <div className="row">
                         <div className="col-sm-3">
                           <h6 className="mb-0">Full Name</h6>
@@ -84,7 +70,6 @@ const UserAccount = () => {
                         <div className="col-sm-9 ">
                           Adam Vaughn
                         </div>
-
                       </div>
                       <hr></hr>
                       <div className="row">
@@ -104,7 +89,6 @@ const UserAccount = () => {
                           (205) 424-6933
                         </div>
                       </div>
-
                       <hr></hr>
                       <div className="row">
                         <div className="col-sm-3">
@@ -187,7 +171,6 @@ const UserAccount = () => {
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -198,10 +181,8 @@ const UserAccount = () => {
             </div>
           </div>
         </div>
-
       </div>
     </>
-
   );
 }
 
