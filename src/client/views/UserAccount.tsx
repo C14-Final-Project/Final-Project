@@ -8,10 +8,9 @@ const UserAccount = (props: nameProps) => {
   
   return(
    <>
+   <body className="thebody">
 <div className="container">
-
-    <div className="main-body">     
-          
+    <div className="main-body">         
               <div className="bg">            
               <div className="row gutters-sm">
             <div className="col-md-4 mb-3 mt-4">
@@ -22,13 +21,28 @@ const UserAccount = (props: nameProps) => {
                     <div className="mt-3">
                       <h4>Adam Vaughn</h4>
                       <p className=" mb-1">Full Stack Developer/Heavy-Metal Drummer</p>
-                      <p className="font-size-sm">Birmingham, Alabama</p>
+                      <p className="font-size-sm">Username: </p>
                       <button className="btn btn-dark">Follow</button>
                       <button className="btn btn-dark m-1">Booking Availability</button>
                     </div>
                   </div>
                 </div>
               </div>
+
+              username varchar(255) not null,
+	email varchar(255) not null,
+	password text not null,
+    profileType varchar(20) not null,
+    profileName varchar(100) null,
+    profileLocation varchar(200) null,
+    profileBio varchar(3000) null,
+    profilePhoto varchar(1000) null,
+    popularity int null,
+    tag1 varchar(50) null,
+    tag2 varchar(50) null,
+    tag3 varchar(50) null,
+
+
               <div className="card-body">
               <div className="card mt-3">
                 <ul className="list-group list-group-flush">
@@ -162,9 +176,7 @@ const UserAccount = (props: nameProps) => {
                         <div className="progress-bar bg-primary" role="progressbar" style={{width: "56%"}} ></div>
                       </div>
                     </div>
-                  </div>
-                
-                
+                  </div>                
                     </div>
                   </div>
                 </div>
@@ -172,16 +184,8 @@ const UserAccount = (props: nameProps) => {
             </div>
           </div>
         </div>
-
-
-
-            
-        
-         
-
-
-
-    </>
+        </body>
+        </>
   );
 }
 
