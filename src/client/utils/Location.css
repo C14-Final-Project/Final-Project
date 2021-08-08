@@ -1,7 +1,6 @@
 .custom {
-    background-image: url("https://i.postimg.cc/SN8kPx5K/edit.jpg");
+    background-image: url("https://gregorlove.com/site/assets/files/5215/beach-house-2018-08-05b.1000x0-is.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 .bg-custom {
@@ -10,12 +9,4 @@
 
 .customTile {
     color: white;
-} */
-
-.react-calendar{
-    opacity: 90%;
-}
-
-.updateCard{
-    opacity: 90%;
 }

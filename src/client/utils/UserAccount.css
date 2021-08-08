@@ -1,11 +1,19 @@
-.userCon{
+.thebody {
+    padding: auto;
     background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
-    background-repeat: no-repeat;
-    background-size: auto;
+    width: 100%;
+}
+.main-body {
+    padding: auto;
+    
+    width: 100%;
 }
 
 .card-body {
+    padding: auto;
+    margin: auto;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,7 +22,23 @@
     
     background-clip: border-box;
     border: 0 solid rgba(0,0,0,.125);
-    border-radius: .75rem;}
+    border-radius: .75rem;
+}
+
+div.row {
+    display: flex;
+    width: 100%;
+}
+div.container {
+    
+    display: flex;
+    width: 100%;
+}
+
+div.bg {
+    display: flex;
+    width: 100%;
+}
 
 
     
