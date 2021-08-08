@@ -1,15 +1,16 @@
 .custom {
     background-image: url("https://i.postimg.cc/SN8kPx5K/edit.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .bg-custom {
     background-color: rgba(228, 228, 228, 0.911);
 }
 
-.customColor {
+/* .customColor {
     color: white;
-}
+} */
 
 .react-calendar{
     opacity: 90%;

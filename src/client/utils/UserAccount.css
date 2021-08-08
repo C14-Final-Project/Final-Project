@@ -1,5 +1,7 @@
-body{
+.userCon{
     background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 .card-body {

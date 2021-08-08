@@ -51,7 +51,8 @@ const Navbar1 = (props: nameProps) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#link">Login</Nav.Link>
+                {/* <Nav.Link href="#link">Login</Nav.Link> */}
+                <NavLink style={{ textDecoration: "none" }} to={'/login'} className='link' activeClassName="active"><a className="nav-link" href="">Login</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={'/register'} className='link' activeClassName="active"><a className="nav-link" href="">Register</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={`/${location}`} className='link' activeClassName="active"><a className="nav-link" href="">{processing.city}{comma.comma} {processing.state}</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={`/users/${username}`} className='link' activeClassName="active"><a className="nav-link" href="">{username}</a></NavLink>

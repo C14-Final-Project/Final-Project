@@ -56,10 +56,7 @@ const App = (props: nameProps) => {
 
             <Route path="/Login">
               <Login
-                username={props.username}
-                email={props.email}
-                profileType={props.profileType}
-                auth={props.auth}
+              
               />
             </Route>
 

@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import Calendar from 'react-calendar'
 import '../utils/Calendar.css';
 import '../utils/Location.css';
+import Container from "react-bootstrap/Container";
 
 const Location = (props: nameProps) => {
 
@@ -146,52 +147,99 @@ const Location = (props: nameProps) => {
     }, [length]);
 
     return (
-        <div className='custom'>
-
-            <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-dark text-white'>
-                <div style={{ fontSize: "300%" }} className='ps-4 col-12' >Birmingham, Alabama</div>
-            </div>
-
-            <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>
-                <div className='bg-dark border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
-            </div>
-            <div style={{ margin: "auto" }} className='row pt-2 pb-5'>
-                <div className='d-none d-sm-block col-lg-2 col-md-3 '>
-                    <div className="ms-2 card updateCard">
-                        <ul className="list-group  list-group-flush">
-                            <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
-                            <li className="list-group-item bg-dark text-white pl-2">There {be} {length} {post} on {sidebarSelection}!</li>
-                            <li className="list-group-item bg-dark pl-2">{props.username}</li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' onMouseEnter={() => hoverMakeEnter()} onMouseLeave={() => hoverMakeLeave()} type='button' className='btn text-white ps-2 pe-2 btn-dark'>Make Post  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${location}/${sidebarSelection}`}><button id='viewButton' type='button' onMouseEnter={() => hoverViewEnter()} onMouseLeave={() => hoverViewLeave()} className='btn text-white ps-2 pe-2 btn-dark'>View Posts  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className='col-lg-10 col-md-9 col-sm-9 col-xs-12'>
-                    <Calendar className='react-calendar  bg-dark btn border w-100'
-                        tileClassName='btn  border rounded-0 p-2'
-                        onClickDay={(value) => bruhFunc(value)}
-                        onChange={onChange}
-                        value={date}
-                        tileContent={bruh}
-                        tileDisabled={({ date, view }) =>
-                            (view === 'month') &&
-                            disabledDates.some(disabledDate =>
-                                date.getFullYear() === disabledDate.getFullYear() &&
-                                date.getMonth() === disabledDate.getMonth() &&
-                                date.getDate() === disabledDate.getDate()
-                            )}
-                    />
-                </div>
-                <div className='col-1'></div>
-            </div>
-
+      <div className="custom">
+        <div
+          style={{ margin: "auto" }}
+          className="row pb-2 d-flex flex-row bg-dark text-white"
+        >
+          <div style={{ fontSize: "300%" }} className="ps-4 col-12">
+            Birmingham, Alabama
+          </div>
         </div>
-    )
+        <div className="custom">
+          <div
+            style={{ margin: "auto" }}
+            id="smallScreen"
+            className="row invisible"
+          >
+            <div className="bg-dark border border-white br-1 col-12 pb-1 text-white">
+              {sidebarSelection}
+              {colon}
+            </div>
+          </div>
+          <div style={{ margin: "auto" }} className="row pt-2 pb-5">
+            <div className="d-none d-sm-block col-lg-2 col-md-3 ">
+              <div className="ms-2 card updateCard">
+                <ul className="list-group  list-group-flush">
+                  <li className="list-group-item bg-dark text-white pl-2">
+                    {sidebarSelection}
+                    {colon}
+                  </li>
+                  <li className="list-group-item bg-dark text-white pl-2">
+                    There {be} {length} {post} on {sidebarSelection}!
+                  </li>
+                  <li className="list-group-item bg-dark pl-2">
+                    {props.username}
+                  </li>
+                  <li className="list-group-item bg-dark pl-2"></li>
+                  <li className="list-group-item bg-dark pl-2"></li>
+                  <li className="list-group-item bg-dark pl-2"></li>
+                  <li className="list-group-item bg-dark pl-2"></li>
+                  <li className="list-group-item bg-dark pl-2">
+                    <Link
+                      to={`/${location}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}
+                    >
+                      <button
+                        id="makeButton"
+                        onMouseEnter={() => hoverMakeEnter()}
+                        onMouseLeave={() => hoverMakeLeave()}
+                        type="button"
+                        className="btn text-white ps-2 pe-2 btn-dark"
+                      >
+                        Make Post ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆
+                      </button>
+                    </Link>
+                  </li>
+                  <li className="list-group-item bg-dark pl-2">
+                    <Link to={`/${location}/${sidebarSelection}`}>
+                      <button
+                        id="viewButton"
+                        type="button"
+                        onMouseEnter={() => hoverViewEnter()}
+                        onMouseLeave={() => hoverViewLeave()}
+                        className="btn text-white ps-2 pe-2 btn-dark"
+                      >
+                        View Posts ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆
+                      </button>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-lg-10 col-md-9 col-sm-9 col-xs-12">
+              <Calendar
+                className="react-calendar  bg-dark btn border w-100"
+                tileClassName="btn  border rounded-0 p-2"
+                onClickDay={(value) => bruhFunc(value)}
+                onChange={onChange}
+                value={date}
+                tileContent={bruh}
+                tileDisabled={({ date, view }) =>
+                  view === "month" &&
+                  disabledDates.some(
+                    (disabledDate) =>
+                      date.getFullYear() === disabledDate.getFullYear() &&
+                      date.getMonth() === disabledDate.getMonth() &&
+                      date.getDate() === disabledDate.getDate()
+                  )
+                }
+              />
+            </div>
+          </div>
+          <div className="col-1"></div>
+        </div>
+      </div>
+    );
 };
 
 export default Location
