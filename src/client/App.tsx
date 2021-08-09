@@ -97,9 +97,7 @@ const App = () => {
               <Login/>
             </Route>
 
-            <Route path="/register">
-              <Register />
-            </Route>
+            
 
             <Route path="/users/:username">
               <UserAccount />
