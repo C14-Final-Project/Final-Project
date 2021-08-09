@@ -28,7 +28,6 @@ const App = () => {
 	const [next, setNext] = useState(false)
 	const [propsObj, setPropsObj] = useState(defaultObjState)
 	const [username, setUsername] = useState(propsObj.username)
-	const [password, setPassword] = useState('')
 	const [profileType, setProfileType] = useState<string>(propsObj.profileType)
 	const [auth, setAuth] = useState(propsObj.auth)
 	const [session, setSession] = useState(false)
@@ -36,6 +35,7 @@ const App = () => {
 	  username: username,
 	  profileType: 'artist',
 	  auth: true,
+	  loggedin: true,
 	  invisible: '',
 	  invisible2: 'invisible'
 	})
@@ -64,6 +64,7 @@ const App = () => {
 			username: username,
 			profileType: profileType,
 			auth: true,
+			loggedin: true,
 			invisible: '',
 			invisible2: 'invisible'
 		})
