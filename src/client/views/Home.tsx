@@ -16,16 +16,22 @@ import { newUser } from "../utils/types"
 import '../utils/Register.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import { logUser } from '../utils/types'
 
 const Home = () => {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const { propsObj, setPropsObj } = useContext(userContext)
-  const [usernameObj, setUsernameObj] = useState({
-    username: propsObj.username
-  })
+  const [gate1, setGate1] = useState(false)
+  const [gate2, setGate2] = useState(false)
+  const [reg, setReg] = useState(false)
+  const [log, setLog] = useState(false)
+  const [last, setLast] = useState<boolean>(false)
+  const [loggedin, setLoggedin] = useState(propsObj.loggedin)
   const [next, setNext] = useState(false)
+  const [renderLoggedHome, setRenderLoggedHome] = useState(false)
   const [context, setContext] = useState(false)
+  const [contextLog, setContextLog] = useState(false)
   const [email, setEmail] = useState(propsObj.email)
   const [username, setUsername] = useState(propsObj.username)
   const [password, setPassword] = useState('')
@@ -37,29 +43,35 @@ const Home = () => {
     password: '',
     profileType: '',
   })
-  const [authRegObjState, setAuthRegObjState] = useState({
+  const [prePostLog, setPrePostLog] = useState<logUser>({
+    username: '',
+    password: '',
+  })
+  const [authRegLogObjState, setAuthRegLogObjState] = useState({
     username: propsObj.username,
     profileType: propsObj.profileType,
     auth: true,
     invisible: '',
     invisible2: 'invisible'
   })
-  
-
-  console.log(propsObj)
-
+  const [authObjState, setAuthObjState] = useState({
+    username: propsObj.username,
+    profileType: propsObj.profileType,
+    auth: propsObj.auth,
+    invisible: '',
+    invisible2: 'invisible'
+  })
 
   useEffect(() => {
     if (context == true && auth == true) {
-      setPropsObj(authRegObjState)
+      setPropsObj(authRegLogObjState)
+      postSessionLog()
       setContext(false)
-      
     }
-    console.log('me?')
   }, [context])
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+  console.log(propsObj)
   const newUser = () => {
     let preUser: newUser = {
       username: username,
@@ -69,19 +81,21 @@ const Home = () => {
     };
     setPrePost(preUser)
     setAuth(true)
+    setReg(true)
     setNext(true)
   }
 
   useEffect(() => {
-    if (next == true) {
-    sendPost();
-    postSession();
-    setNext(false);
+    if (next == true && reg == true) {
+      sendPostReg();
+      setNext(false);
     }
   }, [prePost])
 
-  const sendPost = async () => {
-    if (auth) {
+  
+
+  const sendPostReg = async () => {
+    if (auth == true && reg == true) {
       let res = await fetch(`/api/register`, {
         method: "POST",
         headers: {
@@ -90,14 +104,14 @@ const Home = () => {
         body: JSON.stringify(prePost)
       });
       if (res.ok) {
-        setAuthRegObjState(({
+        setAuthRegLogObjState(({
           username: username,
           profileType: profileType,
           auth: auth,
           invisible: '',
           invisible2: 'invisible'
         }))
-        setPropsObj(authRegObjState)
+        setPropsObj(authRegLogObjState)
         setContext(true)
       } else {
         setAuth(false)
@@ -105,29 +119,81 @@ const Home = () => {
     }
   }
 
-  const postSession = async () => {
-    if (auth == true) {
+  const postSessionLog = async () => {
+    if (propsObj.auth == true) {
       let res = await fetch(`/api/session`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          username: prePost.username,
+          username: username,
           auth: true,
-          profileType: prePost.profileType
+          profileType: profileType
         })
       });
       if (res.ok) {
-        console.log('yeah')
+        setUsername(username)
+        setProfileType(profileType)
       } else {
         console.log('uh oh');
       }
     }
   }
 
+  const Login = () => {
+    let logUser: logUser = {
+      username: username,
+      password: password
+    };
+    setPrePostLog(logUser)
+    getUserProfile()
+    setLog(true)
+    setNext(true)
+    console.log('login function')
+  }
 
-  if (propsObj.register == undefined) {
+  const sendGetLog = async () => {
+    if (log == true) {
+      setLog(false)
+      setAuth(true)
+      let res = await fetch(`/api/login/username=${username}&password=${password}`)
+      let logRes = await res.json()
+      if (logRes == true) {
+        setAuthRegLogObjState(({
+          username: username,
+          profileType: profileType,
+          auth: true,
+          invisible: '',
+          invisible2: 'invisible'
+        }))
+        setPropsObj(authRegLogObjState)
+        setContext(true)
+      } else {
+        
+      }
+    }
+  }
+
+  const getUserProfile = () => {
+    (async () => {
+      console.log('im in')
+      let res = await fetch(`/api/users/get/${username}`);
+      let getUserProfileType = await res.json();
+      setProfileType(getUserProfileType);
+    })();
+  }
+
+  useEffect(() => {
+    if (next == true && log == true) {
+      sendGetLog()
+      setNext(false);
+    }
+  }, [profileType])
+
+  
+
+  if (propsObj.register == undefined && propsObj.login == undefined) {
     return (
       <div className="bg-dark">
         <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
@@ -250,7 +316,61 @@ const Home = () => {
         </Card>
       </div>
     );
+  } if (propsObj.login == true) {
+    return (
+      <div className="bg-dark">
+        <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
+          <Card.Img
+            className=""
+            src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
+            alt="Card image"
+          />
+
+          <Card.ImgOverlay className=" bg-dark ">
+            <Container className="text-center">
+              <Card.Title className="Justify-content-center align-items-center">
+                Performance
+              </Card.Title>
+              <Form>
+                <Form.Group className="mb-4" controlId="formBasicEmail">
+                  <Form.Label>User Name</Form.Label>
+                  <InputGroup hasValidation>
+                    <InputGroup.Text>@</InputGroup.Text>
+                    <Form.Control type="text"
+                      placeholder="Username"
+                      aria-describedby="inputGroupPrepend"
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
+                      required
+                    />
+                  </InputGroup>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password"
+                    placeholder="Password"
+                    aria-describedby="inputGroupPrepend"
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                    required />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Button onClick={() => Login()} variant="primary" >
+                  Submit
+                </Button>
+              </Form>
+            </Container>
+          </Card.ImgOverlay>
+        </Card>
+      </div>
+    )
   }
 }
 
-export default Home;
+export default Home
+
+
+
+
+

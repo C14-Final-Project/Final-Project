@@ -3,10 +3,10 @@ import db from "../db";
 
 const router = express.Router();
 
-router.get(`/email=:email&password=:password`, async (req, res) => { 
-    const email: any = req.params.email;
+router.get(`/username=:username&password=:password`, async (req, res) => { 
+    const username: any = req.params.username;
     const checkPass = req.params.password;
-    const password = await db.Login.login(email);
+    const password = await db.Login.login(username);
     if (password[0].password == checkPass) {
         res.send(true)
         console.log(true)
