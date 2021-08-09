@@ -2,43 +2,34 @@
     padding: auto;
     background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
     width: 100%;
+    height: flex;
+    zoom: 100%;
+   
 }
 .main-body {
     padding: auto;
-    
+    background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
     width: 100%;
+    
 }
 
 .card-body {
     padding: auto;
     margin: auto;
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+   
     width: 100%;
+ 
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: #082f6338;
     word-wrap: break-word;
     
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
+
+  
     border-radius: .75rem;
 }
 
-div.row {
-    display: flex;
-    width: 100%;
-}
-div.container {
-    
-    display: flex;
-    width: 100%;
-}
-
-div.bg {
-    display: flex;
-    width: 100%;
-}
 
 
     
@@ -47,8 +38,12 @@ li.list-group-item {
 }
 
 
-
-.shadow-none {
-    box-shadow: none!important;
+.zoom { 
+    zoom: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;   
 }
 

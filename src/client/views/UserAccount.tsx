@@ -1,44 +1,43 @@
-import * as React from 'react';
-import '../utils/UserAccount.css';
-import Image from 'react-bootstrap/Image';
-import { nameProps } from '../utils/types';
-import { useEffect, useState, useContext } from 'react'
-import { userContext } from '../utils/userContext'
-import { useParams } from 'react-router';
+import * as React from "react";
+import "../utils/UserAccount.css";
+import Image from "react-bootstrap/Image";
+import { nameProps } from "../utils/types";
+import { useEffect, useState, useContext } from "react";
+import { userContext } from "../utils/userContext";
+import { useParams } from "react-router";
 
 const UserAccount = () => {
-
-  const { propsObj, setPropsObj } = useContext(userContext)
+  const {propsObj, setPropsObj } = useContext(userContext);
   const { username } = useParams<{ username: string }>();
   const [profileObject, setProfileObject] = useState({
     userid: null,
     username: username,
-    profileName: '',
-    profileLocation: '',
-    profileBio: '',
-    profileType: '',
-    profilePhoto: '',
-    popularity: '',
-    tag1: '',
-    tag2: '',
-    tag3: '',
-  })
+    profileName: "",
+    profileLocation: "",
+    profileBio: "",
+    profileType: "",
+    profilePhoto: "",
+    popularity: "",
+    tag1: "",
+    tag2: "",
+    tag3: "",
+  });
 
   const getProfile = async () => {
     try {
-        const res = await fetch(`/api/users/${username}`);
-        const info = await res.json();
-        setProfileObject(info)
-        console.log(info)
-        console.log(profileObject)
+      const res = await fetch(`/api/users/${username}`);
+      const info = await res.json();
+      setProfileObject(info);
+      console.log(info);
+      console.log(profileObject);
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-}
+  };
 
-useEffect(() => {
-  getProfile();
-}, [])
+  useEffect(() => {
+    getProfile();
+  }, []);
 
   return (
     <>
@@ -47,7 +46,7 @@ useEffect(() => {
           <div className="main-body">
             <div className="bg">
               <div className="row gutters-sm">
-                <div className="col-md-4 mb-3 mt-4">
+                <div className="col-md-4 mb-3 mt-2">
                   <div className="card">
                     <div className="card-body">
                       <div className="d-flex flex-column align-items-center text-center">
@@ -57,14 +56,20 @@ useEffect(() => {
                           className="rounded-circle"
                           width="150"
                         ></img>
-                        <div className="mt-3">
-                          <h4>{propsObj.userName}</h4>
-                          <h5><i>
+
+                        <div className="mt-2">
+                          <h4>Username: {profileObject.username}</h4>
+
+                          <h5>
+                            <i>
                               <b>™︁Performance </b>
-                            </i> Artist</h5>
+                            </i>{" "}
+                            {profileObject.profileType}
+                          </h5>
                           <p className=" mb-1">
-                            <b>Bio:</b> Full-Stack Web Developer/Heavy-Metal Drummer for "OOP" 
-                          <p className="font-size-sm">Location: {propsObj.profileLocation}</p>
+                            <p className="font-size-sm">
+                              Location: {profileObject.profileLocation}
+                            </p>
                           </p>
                           <button className="btn btn-dark">Follow</button>
                           <button className="btn btn-dark m-1">
@@ -72,15 +77,11 @@ useEffect(() => {
                           </button>
                         </div>
                       </div>
-
                     </div>
                   </div>
 
-
-
-
                   <div className="card-body">
-                    <div className="card mt-3">
+                    <div className="card mt-2">
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                           <h6 className="mb-0">
@@ -182,15 +183,18 @@ useEffect(() => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-8 mt-4">
+                <div className="col-md-8 mt-2">
                   <div className="card mb-3">
                     <div className="card-body">
                       <div className="row">
                         <div className="col-sm-3">
-                          <h6 className="mb-0">Full Name</h6>
-                        </div>
-                        <div className="col-sm-9 ">
-                          Adam Vaughn
+                          <div className="min-height=50% col-xs-12">
+                          <h5>
+                            <b>{profileObject.profileName}Bio:</b>
+                          </h5>
+                        
+                       
+                          {profileObject.profileBio}
                         </div>
                       </div>
                       <hr></hr>
@@ -198,32 +202,8 @@ useEffect(() => {
                         <div className="col-sm-3">
                           <h6 className="mb-0">Email</h6>
                         </div>
-                        <div className="col-sm-9 ">
-                          adammathewvaughn@gmail.com
-                        </div>
-                      </div>
-                      <hr></hr>
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <h6 className="mb-0">Phone</h6>
-                        </div>
-                        <div className="col-sm-9 ">(205) 424-6933</div>
-                      </div>
-                      <hr></hr>
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <h6 className="mb-0">Mobile</h6>
-                        </div>
-                        <div className="col-sm-9 ">(205) 704-2050</div>
-                      </div>
-                      <hr></hr>
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <h6 className="mb-0">Address</h6>
-                        </div>
-                        <div className="col-sm-9 ">8040 Weaver Rd.</div>
-                      </div>
-                      <hr></hr>
+                
+
                       <div className="row">
                         <div className="col-sm-12">
                           <a
@@ -383,8 +363,10 @@ useEffect(() => {
           </div>
         </div>
       </div>
+      </div>
+      </div>
     </>
   );
 };
 
-export default UserAccount
+export default UserAccount;

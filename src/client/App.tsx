@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './views/Home';
 import Location from './views/Location';
 import UserAccount from './views/UserAccount';
+import EditUserAccount from './views/EditUserAccount';
 import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost';
@@ -98,6 +99,10 @@ const App = () => {
 
 					<Route path="/users/:username">
 						<UserAccount />
+					</Route>
+
+					<Route path="/users/:username/:edituseraccount">
+						<EditUserAccount />
 					</Route>
 
 					<Route exact path="/:locationEventName/:sidebarSelection/post">

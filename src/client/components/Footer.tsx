@@ -3,7 +3,7 @@ import * as React from 'react';
 
 
 
-function footer() {
+function Footer() {
   return (
     <>
 
@@ -12,12 +12,12 @@ function footer() {
         {/* <!-- Grid container --> */}
         <div className="container">
           {/* <!--Grid row--> */}
-          <div className="row p-5">
+          <div className="row p-1">
             {/* <!--Grid column--> */}
             <div className="col-lg-3 col-md-6 ">
               <h5 className="text-uppercase text-white">™︁<i><b>Performance</b></i> Venues</h5>
 
-              <ul className="list-unstyled mb-4">
+              <ul className="list-unstyled mb-1">
                 <li>
                   <a href="#!" className="text-white">Book A <i>™︁Performance</i> Venue</a>
                 </li>
@@ -66,8 +66,8 @@ function footer() {
             {/* <!--Grid column--> */}
             <div className="col-lg-3 col-md-6 ">
 
-              <h5 className="text-uppercase text-white">Subscribe to the ™︁<i><b>Performance</b></i> newsletter!</h5>
-              <button type="submit" className="btn btn-outline-white btn-block">Subscribe</button>
+              <h5 className="text-uppercase text-white mb-0 py-0">Subscribe to the ™︁<i><b>Performance</b></i> newsletter!</h5>
+              <button type="submit" className="btn btn-bg-primary btn-block mt-0 py-0">Subscribe</button>
                
 
               <div className="form-outline form-white ">
@@ -93,4 +93,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;
