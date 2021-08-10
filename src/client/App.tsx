@@ -108,15 +108,15 @@ const App = () => {
 						<UserAccount />
 					</Route>
 
-<<<<<<< HEAD
+
 					<Route exact path="/users/:username/edit">
 						<EditUserAccount />
-=======
+					</Route>
 
-					<Route path="/users/:username/edit">
-						<UserAccount />
 
->>>>>>> 068095d9f1c95b42d65be6c15e18b571ce9ce02d
+					<Route exact path="/users/:username/edit">
+						<EditUserAccount />
+
 					</Route>
 
 					<Route exact path="/:locationEventName/:sidebarSelection/post">
