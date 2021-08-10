@@ -15,7 +15,7 @@ import { useHistory } from 'react-router-dom'
 import { userContext } from "./utils/userContext";
 import { createContext } from "react";
 import { useState, useEffect } from 'react';
-import Login from '../server/db/Login';
+// import Login from '../server/db/Login';
 
 
 
@@ -89,50 +89,6 @@ const App = () => {
 	}, [])
 
 	return (
-<<<<<<< HEAD
-    <div>
-      <Router>
-        <userContext.Provider value={{ propsObj, setPropsObj }}>
-          <Navbar1 />
-
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route exact path="/Login">
-              <Login/>
-            </Route>
-
-            
-
-            <Route path="/users/:username">
-              <UserAccount />
-            </Route>
-
-            <Route exact path="/:locationEventName/:sidebarSelection/post">
-              <MakePost />
-            </Route>
-
-            <Route path="/:locationEventName/:sidebarSelection/:postid">
-              <SinglePost />
-            </Route>
-
-            <Route path="/:locationEventName/:sidebarSelection">
-              <LocationDay />
-            </Route>
-
-            <Route path="/:locationEventName">
-              <Location />
-            </Route>
-          </Switch>
-
-          <Footer />
-        </userContext.Provider>
-      </Router>
-    </div>
-  );
-=======
 		<div>
 			<Router>
 			<userContext.Provider value={{propsObj, setPropsObj}}>
@@ -177,7 +133,6 @@ const App = () => {
 			</Router>
 		</div>
 	);
->>>>>>> 3ced4c996a8df906bb8e70a84168b16620fa22d7
 };
 
 export default App;
