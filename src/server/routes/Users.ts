@@ -13,6 +13,18 @@ router.get('/username=:username', async (req, res) => {
     }
 });
 
+router.get('/get/:username', async (req, res) => { 
+  const username: string = req.params.username;
+  console.log('hey')
+  if (username) {
+    const profileType = await db.Users.getUserType(username);
+    res.json(profileType[0].profileType);
+    console.log(res)
+  } else {
+    console.log('error')
+  }
+});
+
 router.get('/:username', async (req, res) => { 
   const username: string = req.params.username;
   if (username) {

@@ -34,6 +34,11 @@ export interface newUser {
     profileType: string,
 }
 
+export interface logUser {
+    username: string,
+    password: string,
+}
+
 export interface Context {
     username: string,
     email: string,

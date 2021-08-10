@@ -80,8 +80,6 @@ const Location = () => {
         console.log(calendarObject.posts)
         console.log(lineup)
         setPropsObj(postsObjState)
-
-
     }
 
     const hoverViewLeave = () => {
@@ -108,6 +106,8 @@ const Location = () => {
     };
 
     const dateArray = getDaysArray(new Date(`1990-01-01 ${time}`), new Date(`${date2} ${time}`));
+
+    const datesToDisable = ({ date, view }) => (view === 'month') && disabledDates.some(disabledDate => date.getFullYear() === disabledDate.getFullYear() && date.getMonth() === disabledDate.getMonth() && date.getDate() === disabledDate.getDate())
 
     const getTime = () => {
         let x = new Date()
@@ -161,9 +161,9 @@ const Location = () => {
         })
     }
 
-    const bruh = ({ date, view }) => view === 'month' && date.toDateString() === datesToAddContentTo.find(dDate => dDate == date.toDateString()) ? <div className='p-0 highlight customTile'>🔥</div> : null
+    const daysWithPosts = ({ date, view }) => view === 'month' && date.toDateString() === datesToAddContentTo.find(dDate => dDate == date.toDateString()) ? <div className='p-0 highlight customTile'>🔥</div> : null
 
-    const bruhFunc = (value: Date) => {
+    const numberPostsPerDay = (value: Date) => {
         setSidebarArray(datesToAddContentTo)
         if (value.toDateString() === datesToAddContentTo.find(dDate => dDate == value.toDateString())) {
             setSelectedDate(value)
@@ -226,7 +226,7 @@ const Location = () => {
         } else {
             setSidebarSelection(selectedDate.toDateString())
             setColon(":")
-            bruhFunc(selectedDate)
+            numberPostsPerDay(selectedDate)
             deconstructDate(selectedDate)
         }
     }, [selectedDate]);
@@ -279,18 +279,11 @@ const Location = () => {
                 <div className='col-lg-10 col-md-9 col-sm-9 col-xs-12'>
                     <Calendar className='react-calendar  bg-black btn border w-100'
                         tileClassName='btn border rounded-0 p-3'
-                        onClickDay={(value) => bruhFunc(value)}
+                        onClickDay={(value) => numberPostsPerDay(value)}
                         onChange={onChange}
                         value={date}
-                        tileContent={bruh}
-                        tileDisabled={({ date, view }) =>
-                            (view === 'month') &&
-                            disabledDates.some(disabledDate =>
-                                date.getFullYear() === disabledDate.getFullYear() &&
-                                date.getMonth() === disabledDate.getMonth() &&
-                                date.getDate() === disabledDate.getDate()
-                            )
-                        }
+                        tileContent={daysWithPosts}
+                        tileDisabled={datesToDisable}
                     />
                 </div>
                 <div className='col-1'></div>
