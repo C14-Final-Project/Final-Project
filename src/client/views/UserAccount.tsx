@@ -185,10 +185,10 @@ const UserAccount = () => {
                 </div>
                 <div className="col-md-8 mt-2">
                   <div className="card mb-3">
-                    <div className="card-body">
+                    <div className="card-body h-250px">
                       <div className="row">
                         <div className="col-sm-3">
-                          <div className="min-height=50% col-xs-12">
+                          <div className=" col-xs-12">
                           <h5>
                             <b>{profileObject.profileName}Bio:</b>
                           </h5>
@@ -197,11 +197,7 @@ const UserAccount = () => {
                           {profileObject.profileBio}
                         </div>
                       </div>
-                      <hr></hr>
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <h6 className="mb-0">Email</h6>
-                        </div>
+                    </div>
                 
 
                       <div className="row">
@@ -223,9 +219,9 @@ const UserAccount = () => {
                       <div className="card h-100">
                         <div className="card-body">
                           <h6 className="d-flex align-items-center mb-3">
-                            Tickets Sales For ™︁
+                            Tickets Sales For
                             <i>
-                              <b>Performance </b>
+                              <b>Performance™︁ </b>
                             </i>{" "}
                             Venues
                           </h6>
@@ -363,8 +359,7 @@ const UserAccount = () => {
           </div>
         </div>
       </div>
-      </div>
-      </div>
+    );
     </>
   );
 };

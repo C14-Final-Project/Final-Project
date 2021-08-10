@@ -1,0 +1,49 @@
+.thebody {
+    padding: auto;
+    background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
+    width: 100%;
+    height: flex;
+    zoom: 100%;
+   
+}
+.main-body {
+    padding: auto;
+    background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
+    width: 100%;
+    
+}
+
+.card-body {
+    padding: auto;
+    margin: auto;
+   
+    width: 100%;
+ 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #082f6338;
+    word-wrap: break-word;
+    
+
+  
+    border-radius: .75rem;
+}
+
+
+
+    
+li.list-group-item {
+    background-color: #082f6338;
+}
+
+
+.zoom { 
+    zoom: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;   
+}
+

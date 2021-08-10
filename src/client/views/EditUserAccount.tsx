@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../utils/UserAccount.css";
+import "../utils/EditUserAccount.css";
 import Image from "react-bootstrap/Image";
 import { nameProps } from "../utils/types";
 import { useEffect, useState, useContext } from "react";
@@ -53,14 +53,14 @@ const UserAccount = () => {
 		<div className="account-settings">
 			<div className="user-profile">
 				<div className="user-avatar">
-					<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin"></img>
+					<img src={profileObject.profilePhoto} alt="Maxwell Admin"></img>
 				</div>
-				<h5 className="user-name">Yuki Hayashi</h5>
-				<h6 className="user-email">yuki@Maxwell.com</h6>
+				<h5 className="user-name">{profileObject.username}</h5>
+				<h6 className="user-type">{profileObject.profileType}</h6>
 			</div>
 			<div className="about">
-				<h5>About</h5>
-				<p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+				<h5><i>Performance</i> Bio</h5>
+				<p>{profileObject.profileBio}</p>
 			</div>
 		</div>
 	</div>
@@ -71,7 +71,7 @@ const UserAccount = () => {
 	<div className="card-body">
 		<div className="row gutters">
 			<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 className="mb-2 text-primary">Personal Details</h6>
+				<h6 className="mb-2 text-primary"><i><b>Performance</b></i>™︁ {profileObject.profileType} Details</h6>
 			</div>
 			<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div className="form-group">
@@ -132,6 +132,7 @@ const UserAccount = () => {
 				<div className="text-right">
 					<button type="button" id="submit" name="submit" className="btn btn-secondary">Cancel</button>
 					<button type="button" id="submit" name="submit" className="btn btn-primary">Update</button>
+					<button type="button" id="submit" name="submit" className="btn btn-primary">Save</button>
 				</div>
 			</div>
 		</div>

@@ -6,6 +6,12 @@ const getUserID = async (username: string) => Query(`
     where Users.username = ?
 `, [username])
 
+const getUserType = async (username: string) => Query(`
+    select Users.profileType
+    from Users
+    where Users.username = ?
+`, [username])
+
 const getUserProfile = async (username: string) => Query(`
     select Users.id, Users.username, Users.profileName, Users.profileLocation, Users.profileBio, Users.profileType, Users.profilePhoto, Users.popularity, Users.tag1, Users.tag2, Users.tag3
     from Users
@@ -20,6 +26,7 @@ const editUserProfile = async (username: string, email: string, profileName: str
 
 export default {
     getUserID,
+    getUserType,
     getUserProfile,
     editUserProfile
 }
