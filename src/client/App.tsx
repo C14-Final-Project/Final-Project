@@ -15,6 +15,7 @@ import { useHistory } from 'react-router-dom'
 import { userContext } from "./utils/userContext";
 import { createContext } from "react";
 import { useState, useEffect } from 'react';
+import Login from '../server/db/Login';
 
 
 
@@ -23,7 +24,11 @@ const App = () => {
 	const [defaultObjState, setDefaultObjState] = useState({
 		invisible: 'invisible',
 		invisible2: '',
-		auth: false
+		auth: false,
+		username: '',
+		profileType: '',
+		loginText: 'Login',
+		registerText: 'Register',
 	})
 	
 	const [next, setNext] = useState(false)
@@ -31,22 +36,21 @@ const App = () => {
 	const [username, setUsername] = useState(propsObj.username)
 	const [profileType, setProfileType] = useState<string>(propsObj.profileType)
 	const [auth, setAuth] = useState(propsObj.auth)
-	const [session, setSession] = useState(false)
 	const [authObjState, setAuthObjState] = useState({
 	  username: username,
 	  profileType: 'artist',
 	  auth: true,
-	  loggedin: true,
 	  invisible: '',
-	  invisible2: 'invisible'
+	  invisible2: 'invisible',
+	  logout: 'Log Out',
+	  loginText: '',
+	  registerText: '',
 	})
   	
 	const getSession = async () => {
 	  try {
 		const res = await fetch('/api/session/0');
 		const sessionName = await res.json();
-		setSession(true)
-		
 		if (sessionName.auth == true) {
 			setUsername(sessionName.username)
 			setProfileType(sessionName.profileType)
@@ -65,11 +69,12 @@ const App = () => {
 			username: username,
 			profileType: profileType,
 			auth: true,
-			loggedin: true,
 			invisible: '',
-			invisible2: 'invisible'
+			invisible2: 'invisible',
+			logout: 'Log Out',
+			loginText: '',
+			registerText: '',
 		})
-		console.log('fuck')
 	  }
 	}, [auth])
   
@@ -84,6 +89,7 @@ const App = () => {
 	}, [])
 
 	return (
+<<<<<<< HEAD
     <div>
       <Router>
         <userContext.Provider value={{ propsObj, setPropsObj }}>
@@ -126,6 +132,52 @@ const App = () => {
       </Router>
     </div>
   );
+=======
+		<div>
+			<Router>
+			<userContext.Provider value={{propsObj, setPropsObj}}>
+				<Navbar1 />
+				
+				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
+
+					<Route path="/register">
+						<Register />
+					</Route>
+
+					<Route path="/users/:username">
+						<UserAccount />
+					</Route>
+
+					<Route exact path="/:locationEventName/:sidebarSelection/post">
+						<MakePost />
+					</Route>
+
+					<Route path="/:locationEventName/:sidebarSelection/view">
+						<LocationDay />
+					</Route>
+
+					<Route path="/:locationEventName/:sidebarSelection/:postid">
+						<SinglePost />
+					</Route>
+
+					<Route path="/:locationEventName">
+						<Location />
+					</Route>
+
+
+
+
+				</Switch>
+
+				<Footer />
+				</userContext.Provider>
+			</Router>
+		</div>
+	);
+>>>>>>> 3ced4c996a8df906bb8e70a84168b16620fa22d7
 };
 
 export default App;

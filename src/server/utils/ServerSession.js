@@ -14,7 +14,7 @@ let getUser = id => {
 }
 
 let createUser = (user) => {
-    users[users.nextid++] = user;
+    users[users.nextid] = user;
     writeUsers();
 };
 
