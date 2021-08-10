@@ -200,7 +200,7 @@ const Home = () => {
                 {username} Lorem Ipsum is simply dummy text of the printing and
                 typesetting industry.{" "}
               </Card.Text>
-              <Card.Text>Last updated 3 mins ago</Card.Text>
+              {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
               <Button variant="warning">Register</Button>{" "}
               <Button variant="warning">Login</Button>{" "}
             </Container>
