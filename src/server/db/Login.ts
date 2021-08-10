@@ -1,10 +1,10 @@
 import { Query } from "./index";
 
-const login = async (email: string) => Query(`
+const login = async (username: string) => Query(`
     select Users.password
     from Users
     where Users.username = ?;
-`, [email]);
+`, [username]);
 
 export default {
     login

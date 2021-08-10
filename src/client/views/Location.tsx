@@ -16,6 +16,7 @@ const Location = () => {
     const { propsObj, setPropsObj } = useContext(userContext)
     const { locationEventName } = useParams<{ locationEventName: string }>();
 
+    const [findDate, setFindDate] = useState('')
     const [lineup, setLineup] = useState([])
     const [email, setEmail] = useState(propsObj.email)
     const [username, setUsername] = useState(propsObj.username)
@@ -41,17 +42,16 @@ const Location = () => {
     const [time, setTime] = useState<string>()
     const [date2, setDate2] = useState<string>()
     const [dateTest, onDateTest] = useState(new Date);
-    const [sidebarArray, setSidebarArray] = useState([{
-        date: ''
-    }])
-
     const [postsObjState, setPostsObjState] = useState({
-        username: username,
+        username: propsObj.username,
         email: email,
         profileType: profileType,
         auth: true,
         invisible: '',
         invisible2: 'invisible',
+        logout: 'Log Out',
+        registerText: '',
+        loginText: '',
         posts: calendarObject.posts,
     })
 
@@ -68,18 +68,22 @@ const Location = () => {
     const hoverViewEnter = () => {
         let x = document.querySelector('#viewButton')
         x.classList.add('border-white')
-        setPostsObjState({
-            username: username,
-            email: email,
-            profileType: profileType,
-            auth: true,
-            invisible: '',
-            invisible2: 'invisible',
-            posts: lineup,
-        })
+        if (propsObj.auth == true) {
+            setPostsObjState({
+                username: propsObj.username,
+                email: propsObj.email,
+                profileType: propsObj.profileType,
+                auth: true,
+                invisible: '',
+                invisible2: 'invisible',
+                logout: 'Log Out',
+                registerText: '',
+                loginText: '',
+                posts: lineup,
+            })
+        }
         console.log(calendarObject.posts)
-        console.log(lineup)
-        setPropsObj(postsObjState)
+        console.log(lineup)    
     }
 
     const hoverViewLeave = () => {
@@ -145,9 +149,23 @@ const Location = () => {
             if (checkedDate.valueOf() > now.valueOf()) {
                 let x = {
                     dateSortValue: checkedDate.valueOf(),
-                    dayEvent: postObject.dayEvent,
+                    timeSortValue: postObject.timeEvent.valueOf(),
+                    id: postObject.id,
                     title: postObject.title,
+                    text: postObject.text,
+                    dayEvent: postObject.dayEvent,
+                    timeEvent: postObject.timeEvent,
                     moneyAmount: postObject.moneyAmount,
+                    username: postObject.username,
+                    email: postObject.email,
+                    profileLocation: postObject.profileLocation,
+                    profileType: postObject.profileType,
+                    profileName: postObject.profileName,
+                    profilePhoto: postObject.profilePhoto,
+                    locationEventName: locationEventName,
+                    tag1: postObject.tag1,
+                    tag2: postObject.tag2,
+                    tag3: postObject.tag3,
                 }
                 displayDateArray.push(checkedDate.toDateString())
                 objArray.push(x)
@@ -164,7 +182,6 @@ const Location = () => {
     const daysWithPosts = ({ date, view }) => view === 'month' && date.toDateString() === datesToAddContentTo.find(dDate => dDate == date.toDateString()) ? <div className='p-0 highlight customTile'>🔥</div> : null
 
     const numberPostsPerDay = (value: Date) => {
-        setSidebarArray(datesToAddContentTo)
         if (value.toDateString() === datesToAddContentTo.find(dDate => dDate == value.toDateString())) {
             setSelectedDate(value)
             let postArray = []
@@ -250,20 +267,26 @@ const Location = () => {
         }
     }, [length]);
 
+    useEffect(() => {
+        if (propsObj.auth == true) {
+            setPropsObj(postsObjState) 
+        }
+    }, [postsObjState]);
+
     return (
         <div className='custom'>
 
-            <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-dark text-white'>
+            <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-black text-white'>
                 <div style={{ fontSize: "300%" }} className='ps-4 col-12' >{locationEventName}</div>
             </div>
 
             <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>
-                <div className='bg-dark border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
+                <div className='bg-black border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
             </div>
-            <div style={{ margin: "auto" }} className='row updateCard pt-2 pb-5'>
+            <div style={{ margin: "auto" }} className='row  updateCard pt-2 pb-5'>
                 <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
                     <div className="ms-2 card">
-                        <ul className="list-group  list-group-flush">
+                        <ul className="list-group  list-group-flush"> 
                             <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
                             <li className="list-group-item bg-dark text-white pl-2">{length} {post}</li>
                             <li className="list-group-item bg-dark pl-2"></li>
@@ -272,12 +295,12 @@ const Location = () => {
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark pl-2"></li>
                             <li className="list-group-item bg-dark  pl-2"><Link to={`/${locationEventName}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' onMouseEnter={() => hoverMakeEnter()} onMouseLeave={() => hoverMakeLeave()} type='button' className='btn text-white ps-2 pe-2 btn-dark'>Make Post  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${locationEventName}/${sidebarSelection}`}><button id='viewButton' type='button' onMouseEnter={() => hoverViewEnter()} onMouseLeave={() => hoverViewLeave()} className='btn text-white ps-2 pe-2 btn-dark'>View Posts  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
+                            <li className="list-group-item bg-dark pl-2"><Link to={`/${locationEventName}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/view`}><button id='viewButton' type='button' onMouseEnter={() => hoverViewEnter()} onMouseLeave={() => hoverViewLeave()} className='btn text-white ps-2 pe-2 btn-dark'>View Posts  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
                         </ul>
                     </div>
                 </div>
                 <div className='col-lg-10 col-md-9 col-sm-9 col-xs-12'>
-                    <Calendar className='react-calendar  bg-dark btn border w-100'
+                    <Calendar className='react-calendar  bg-black btn border w-100'
                         tileClassName='btn border rounded-0 p-3'
                         onClickDay={(value) => numberPostsPerDay(value)}
                         onChange={onChange}

@@ -8,7 +8,7 @@ function Footer() {
     <>
 
 
-      <footer style={{ margin: 0 }} className="row bg-dark text-center text-lg-start ">
+      <footer style={{ margin: 0 }} className="row bg-black text-center text-lg-start ">
         {/* <!-- Grid container --> */}
         <div className="container">
           {/* <!--Grid row--> */}
