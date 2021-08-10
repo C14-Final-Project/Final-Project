@@ -14,7 +14,6 @@ import { useHistory } from 'react-router-dom'
 import { userContext } from "./utils/userContext";
 import { createContext } from "react";
 import { useState, useEffect } from 'react';
-import Login from '../server/db/Login';
 
 
 
@@ -103,6 +102,10 @@ const App = () => {
 					</Route>
 
 					<Route path="/users/:username">
+						<UserAccount />
+					</Route>
+
+					<Route path="/users/:username/edit">
 						<UserAccount />
 					</Route>
 

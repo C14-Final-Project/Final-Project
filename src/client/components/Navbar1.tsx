@@ -21,11 +21,23 @@ const Navbar1 = () => {
   const {propsObj, setPropsObj} = useContext(userContext)
 
   const registerContext = {
-    register: true
+    register: true,
+    loginText: 'Login',
+    registerText: 'Register',
+    auth: false,
   }
 
   const loginContext = {
-    login: true
+    login: true,
+    loginText: 'Login',
+    registerText: 'Register',
+    auth: false,
+  }
+
+  const homeContext = {
+    loginText: 'Login',
+    registerText: 'Register',
+    auth: false,
   }
 
   const logoutContext = {
@@ -80,6 +92,11 @@ const Navbar1 = () => {
   const logOut = () => {
     deleteSession()
   }
+  
+  const goHome = () => {
+    setPropsObj(homeContext)
+    history.push('/')
+  }
 
   useEffect(() => {
     getLocation();
@@ -95,7 +112,7 @@ const Navbar1 = () => {
         <Navbar style={{ margin: "auto" }}  className='sticky-top row' bg="dark" variant="dark" expand="sm">
           <Container>
 
-          <NavLink style={{ textDecoration: "none" }} to={`/`} className='link' activeClassName="active"><Navbar.Brand className="nav-link" href="#home"><i><b>Performance</b></i></Navbar.Brand></NavLink>
+          <NavLink style={{ textDecoration: "none" }} onClick={() => goHome()} to={`/`} className='link' activeClassName="active"><Navbar.Brand className="nav-link" href="#home"><i><b>Performance</b></i></Navbar.Brand></NavLink>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

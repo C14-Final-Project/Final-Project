@@ -80,7 +80,7 @@ const LocationDay = () => {
         return (
             
                 
-                <div key={`post-${val.id}`} id={`postid-${val.id}`}  style={{ margin: "auto" }} onMouseEnter={() => hoverEnterPost(val.id)} onMouseLeave={() => hoverLeavePost(val.id)}  className="row mb-3 mt-3 ps-2">
+                <div key={`post-${val.id}`} id={`postid-${val.id}`}  style={{ margin: "auto" }} className="row mb-3 mt-3 ps-2">
                     <div id={`profile-card-${val.id}`} className="col-md-3 invisible  mb30">
                         <div className="card">
 
