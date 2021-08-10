@@ -17,10 +17,10 @@ function Login() {
 
         <Card.ImgOverlay className=" bg-dark ">
           <Container className="text-center">
-            <Card.Title className="Justify-content-center align-items-center">
-              Performance
-            </Card.Title>
             <Form>
+            <Card.Title className="text-center">
+             <h2>Performance</h2>
+            </Card.Title>
               <Form.Group className="mb-4" controlId="formBasicEmail">
                   <Form.Label>User Name</Form.Label>
                 <InputGroup hasValidation>

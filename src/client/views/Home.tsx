@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import { nameProps } from "../utils/types";
 import { useEffect, useState, useContext } from 'react'
 import { userContext } from '../utils/userContext'
-// import Image from 'react-bootstrap/Image'
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
@@ -191,15 +190,19 @@ const Home = () => {
             alt="Card image"
           />
 
-          <Card.ImgOverlay className=" bg-dark ">
+          <Card.ImgOverlay className=" bg-black ">
             <Container className="text-center">
               <Card.Title className="Justify-content-center align-items-center">
                 Performance
               </Card.Title>
               <Card.Text>
-                {username}
+                {" "}
+                {username} Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry.{" "}
               </Card.Text>
               <Card.Text>Last updated 3 mins ago</Card.Text>
+              <Button variant="warning">Register</Button>{" "}
+              <Button variant="warning">Login</Button>{" "}
             </Container>
           </Card.ImgOverlay>
         </Card>
@@ -208,7 +211,7 @@ const Home = () => {
   }
   if (propsObj.register == true) {
     return (
-      <div className="bg-dark">
+      // <div className="bg-dark">
         <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
           <Card.Img
             className=""
@@ -297,10 +300,11 @@ const Home = () => {
                 </Form>
               </Card.Text>
               <Card.Text>Last updated 3 mins ago</Card.Text>
+              
             </Container>
           </Card.ImgOverlay>
         </Card>
-      </div>
+      // </div>
     );
   } if (propsObj.login == true) {
     return (

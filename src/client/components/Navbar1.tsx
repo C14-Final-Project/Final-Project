@@ -87,7 +87,7 @@ const Navbar1 = () => {
 
   return (
     <>
-        <Navbar style={{ margin: "auto" }}  className='sticky-top row' bg="dark" variant="dark" expand="sm">
+        <Navbar style={{ margin: "auto" }}  className='sticky-top row' bg="black" variant="dark" expand="sm">
           <Container>
 
           <NavLink style={{ textDecoration: "none" }} to={`/`} className='link' activeClassName="active"><Navbar.Brand className="nav-link" href="#home"><i><b>Performance</b></i></Navbar.Brand></NavLink>

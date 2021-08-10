@@ -276,14 +276,14 @@ const Location = () => {
     return (
         <div className='custom'>
 
-            <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-dark text-white'>
+            <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-black text-white'>
                 <div style={{ fontSize: "300%" }} className='ps-4 col-12' >{locationEventName}</div>
             </div>
 
             <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>
-                <div className='bg-dark border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
+                <div className='bg-black border border-white br-1 col-12 pb-1 text-white'>{sidebarSelection}{colon}</div>
             </div>
-            <div style={{ margin: "auto" }} className='row updateCard pt-2 pb-5'>
+            <div style={{ margin: "auto" }} className='row  updateCard pt-2 pb-5'>
                 <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
                     <div className="ms-2 card">
                         <ul className="list-group  list-group-flush"> 
@@ -300,7 +300,7 @@ const Location = () => {
                     </div>
                 </div>
                 <div className='col-lg-10 col-md-9 col-sm-9 col-xs-12'>
-                    <Calendar className='react-calendar  bg-dark btn border w-100'
+                    <Calendar className='react-calendar  bg-black btn border w-100'
                         tileClassName='btn border rounded-0 p-3'
                         onClickDay={(value) => numberPostsPerDay(value)}
                         onChange={onChange}
