@@ -6,7 +6,7 @@ import { useEffect, useState, useContext } from "react";
 import { userContext } from "../utils/userContext";
 import { useParams } from "react-router";
 
-const UserAccount = () => {
+const EditUserAccount = () => {
   const { propsObj, setPropsObj } = useContext(userContext);
   const { username } = useParams<{ username: string }>();
   const [profileObject, setProfileObject] = useState({
@@ -48,18 +48,18 @@ const UserAccount = () => {
       <div className="container">
 <div className="row gutters">
 <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-<div className="card h-100">
+<div className="card h-100 mt-2">
 	<div className="card-body">
 		<div className="account-settings">
 			<div className="user-profile">
 				<div className="user-avatar">
-					<img src={profileObject.profilePhoto} alt="Maxwell Admin"></img>
+					<img src= "https://cdn.discordapp.com/attachments/847941895615021056/874750447410380860/headshoticon_-_Copy.jpg" alt="Performance User Photo"></img>
 				</div>
 				<h5 className="user-name">{profileObject.username}</h5>
 				<h6 className="user-type">{profileObject.profileType}</h6>
 			</div>
 			<div className="about">
-				<h5><i>Performance</i> Bio</h5>
+				<h5><i>Performance</i> Bio:</h5>
 				<p>{profileObject.profileBio}</p>
 			</div>
 		</div>
@@ -67,15 +67,15 @@ const UserAccount = () => {
 </div>
 </div>
 <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-<div className="card h-100">
+<div className="card h-100 mt-2">
 	<div className="card-body">
 		<div className="row gutters">
 			<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 className="mb-2 text-primary"><i><b>Performance</b></i>™︁ {profileObject.profileType} Details</h6>
+				<h6 className="mb-2 text-dark"><i><b>Performance</b></i>™︁ {profileObject.profileType} Details</h6>
 			</div>
 			<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div className="form-group">
-					<label htmlFor="fullName">Full Name</label>
+					<label htmlFor="fullName">{profileObject.profileName}</label>
 					<input type="text" className="form-control" id="fullName" placeholder="Enter full name"></input>
 				</div>
 			</div>
@@ -100,7 +100,7 @@ const UserAccount = () => {
 		</div>
 		<div className="row gutters">
 			<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<h6 className="mt-3 mb-2 text-primary">Address</h6>
+				<h6 className="mt-3 mb-2 text-dark">{profileObject.profileLocation}</h6>
 			</div>
 			<div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 				<div className="form-group">
@@ -128,11 +128,11 @@ const UserAccount = () => {
 			</div>
 		</div>
 		<div className="row gutters">
-			<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-				<div className="text-right">
-					<button type="button" id="submit" name="submit" className="btn btn-secondary">Cancel</button>
+			<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+				<div className="text-right mt-1">
+					<button type="button" id="submit" name="submit" className="btn btn-danger">Cancel</button>
 					<button type="button" id="submit" name="submit" className="btn btn-primary">Update</button>
-					<button type="button" id="submit" name="submit" className="btn btn-primary">Save</button>
+					<button type="button" id="submit" name="submit" className="btn btn-success">Save</button>
 				</div>
 			</div>
 		</div>
@@ -150,4 +150,4 @@ const UserAccount = () => {
   );
 };
 
-export default UserAccount;
+export default EditUserAccount;
