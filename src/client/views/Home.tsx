@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import { nameProps } from "../utils/types";
 import { useEffect, useState, useContext } from 'react'
 import { userContext } from '../utils/userContext'
-// import Image from 'react-bootstrap/Image'
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
@@ -214,6 +213,7 @@ const Home = () => {
             src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
             alt="Card image"
           />
+
            <Card.ImgOverlay style={topCard} className="m-5 ">
             <Container className="text-left">
               <Card.Title className="text-center">
@@ -245,6 +245,7 @@ const Home = () => {
                 <div className='col-5'></div>
               </div>
               
+
             </Container>
           </Card.ImgOverlay>
         </Card>
@@ -253,7 +254,7 @@ const Home = () => {
   }
   if (propsObj.register == true) {
     return (
-      <div className="bg-dark">
+      // <div className="bg-dark">
         <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
           <Card.Img
             className=""
@@ -342,10 +343,11 @@ const Home = () => {
                 </Form>
               </Card.Text>
               <Card.Text>Last updated 3 mins ago</Card.Text>
+              
             </Container>
           </Card.ImgOverlay>
         </Card>
-      </div>
+      // </div>
     );
   } if (propsObj.login == true) {
     return (
