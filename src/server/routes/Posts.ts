@@ -19,7 +19,19 @@ router.get('/:locationEventName/:id', async (req, res) => {
 
     }
   }
-}); 
+});
+
+router.get('/:locationEventName/:sidebarSelection/view', async (req, res) => { 
+  const locationEventName: string = req.params.locationEventName;
+  const sidebarSelection: string = req.params.sidebarSelection;
+  let x = new Date(sidebarSelection)
+  let y = x.toDateString()
+  if (locationEventName && sidebarSelection) {
+    const posts = await db.Posts.allDay(y);
+    res.json(posts)
+  }
+});
+
 
 router.post('/:locationEventName', async (req, res) => {
   const postObj: post = req.body;

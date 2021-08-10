@@ -22,16 +22,10 @@ const Home = () => {
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   const { propsObj, setPropsObj } = useContext(userContext)
-  const [gate1, setGate1] = useState(false)
-  const [gate2, setGate2] = useState(false)
   const [reg, setReg] = useState(false)
   const [log, setLog] = useState(false)
-  const [last, setLast] = useState<boolean>(false)
-  const [loggedin, setLoggedin] = useState(propsObj.loggedin)
   const [next, setNext] = useState(false)
-  const [renderLoggedHome, setRenderLoggedHome] = useState(false)
   const [context, setContext] = useState(false)
-  const [contextLog, setContextLog] = useState(false)
   const [email, setEmail] = useState(propsObj.email)
   const [username, setUsername] = useState(propsObj.username)
   const [password, setPassword] = useState('')
@@ -52,14 +46,10 @@ const Home = () => {
     profileType: propsObj.profileType,
     auth: true,
     invisible: '',
-    invisible2: 'invisible'
-  })
-  const [authObjState, setAuthObjState] = useState({
-    username: propsObj.username,
-    profileType: propsObj.profileType,
-    auth: propsObj.auth,
-    invisible: '',
-    invisible2: 'invisible'
+    invisible2: 'invisible',
+    logout: 'Log Out',
+    registerText: '',
+    loginText: '',
   })
 
   useEffect(() => {
@@ -70,8 +60,6 @@ const Home = () => {
     }
   }, [context])
 
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  console.log(propsObj)
   const newUser = () => {
     let preUser: newUser = {
       username: username,
@@ -92,8 +80,6 @@ const Home = () => {
     }
   }, [prePost])
 
-  
-
   const sendPostReg = async () => {
     if (auth == true && reg == true) {
       let res = await fetch(`/api/register`, {
@@ -109,7 +95,10 @@ const Home = () => {
           profileType: profileType,
           auth: auth,
           invisible: '',
-          invisible2: 'invisible'
+          invisible2: 'invisible',
+          logout: 'Log Out',
+          loginText: '',
+          registerText: '',
         }))
         setPropsObj(authRegLogObjState)
         setContext(true)
@@ -150,7 +139,6 @@ const Home = () => {
     getUserProfile()
     setLog(true)
     setNext(true)
-    console.log('login function')
   }
 
   const sendGetLog = async () => {
@@ -165,7 +153,10 @@ const Home = () => {
           profileType: profileType,
           auth: true,
           invisible: '',
-          invisible2: 'invisible'
+          invisible2: 'invisible',
+          logout: 'Log Out',
+          loginText: '',
+          registerText: '',
         }))
         setPropsObj(authRegLogObjState)
         setContext(true)
@@ -177,7 +168,6 @@ const Home = () => {
 
   const getUserProfile = () => {
     (async () => {
-      console.log('im in')
       let res = await fetch(`/api/users/get/${username}`);
       let getUserProfileType = await res.json();
       setProfileType(getUserProfileType);
@@ -190,8 +180,6 @@ const Home = () => {
       setNext(false);
     }
   }, [profileType])
-
-  
 
   if (propsObj.register == undefined && propsObj.login == undefined) {
     return (
@@ -215,8 +203,6 @@ const Home = () => {
             </Container>
           </Card.ImgOverlay>
         </Card>
-
-
       </div>
     );
   }

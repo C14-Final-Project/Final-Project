@@ -1,14 +1,21 @@
 import { Query } from "./index";
 
 const all = async (locationEventName: string) => Query(`
-    select Posts.id, Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Users.username, Users.email, Users.profileLocation, Users.profileType, Users.profileName
+    select Posts.id, Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Users.username, Users.email, Users.profileLocation, Users.profileType, Users.profileName, Users.profilePhoto, Users.tag1, Users.tag2, Users.tag3
     from Posts
     join Users on Posts.userid = Users.id
     where Posts.locationEventName = ?;
 `, [locationEventName]);
 
+const allDay = async (sidebarSelection: string) => Query(`
+    select Posts.id, Posts.title, Posts.text, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Users.username, Users.email, Users.profileLocation, Users.profileType, Users.profileName, Users.profilePhoto, Users.tag1, Users.tag2, Users.tag3
+    from Posts
+    join Users on Posts.userid = Users.id
+    where Posts.dayEvent = ?;
+`, [sidebarSelection]);
+
 const one = async (id: any) => Query(`
-    select Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Posts.locationEventName, Users.username, Users.email, Users.profileLocation, Users.profileType, Users.profileName
+    select Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Posts.locationEventName, Users.username, Users.email, Users.profileLocation, Users.profileType, Users.profileName, Users.profilePhoto
     from Posts
     join Users on Posts.userid = Users.id
     where Posts.id = ?; 
@@ -31,6 +38,7 @@ const destroy = async (id: string) => Query(`
 export default {
     all,
     one,
+    allDay,
     post,
     put,
     destroy
