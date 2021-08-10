@@ -10,9 +10,9 @@ router.get('/:locationEventName', async (req, res) => {
 });
 
 router.get('/:locationEventName/:id', async (req, res) => { 
-  const id: string = req.params.id;
   const locationEventName: string = req.params.locationEventName;
-  if (id) {
+  const id: string = req.params.id;
+  if (locationEventName && id) {
     const post = await db.Posts.one(id);
     if (post[0].locationEventName = locationEventName) {
       res.json(post[0]);
