@@ -25,17 +25,10 @@
     background-color: #082f6338;
     word-wrap: break-word;
     
-}
 
-div.row {
-    display: flex;
-    width: 100%;
+  
+    border-radius: .75rem;
 }
-/* div.container {
-    
-    display: flex;
-    width: 100%;
-} */
 
 
 
