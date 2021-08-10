@@ -117,7 +117,7 @@ const App = () => {
 						<LocationDay />
 					</Route>
 
-					<Route path="/:locationEventName/:sidebarSelection/:postid">
+					<Route path="/:locationEventName/:postid">
 						<SinglePost />
 					</Route>
 

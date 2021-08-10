@@ -52,6 +52,26 @@ const Home = () => {
     loginText: '',
   })
 
+  const topCard = {
+    position: 'absolute',
+    top: '-1em',
+    display: 'flex',
+  }
+
+  const bottomCard = {
+    position: 'absolute',
+    top: '15em',
+    display: 'flex'
+  }
+
+  const joinContext = {
+    register: true,
+    loginText: 'Login',
+    registerText: 'Register',
+    auth: false,
+  }
+
+
   useEffect(() => {
     if (context == true && auth == true) {
       setPropsObj(authRegLogObjState)
@@ -59,6 +79,10 @@ const Home = () => {
       setContext(false)
     }
   }, [context])
+
+  const onJoin = () => {
+    setPropsObj(joinContext)
+  }
 
   const newUser = () => {
     let preUser: newUser = {
@@ -190,16 +214,37 @@ const Home = () => {
             src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
             alt="Card image"
           />
-
-          <Card.ImgOverlay className=" bg-dark ">
-            <Container className="text-center">
-              <Card.Title className="Justify-content-center align-items-center">
-                Performance
+           <Card.ImgOverlay style={topCard} className="m-5 ">
+            <Container className="text-left">
+              <Card.Title className="text-center">
+              <h1 style={{ fontSize: '500%' }}><i><b>Performance</b></i></h1>
               </Card.Title>
-              <Card.Text>
-                {username}
+              
+            </Container>
+            
+          </Card.ImgOverlay>
+          
+          
+          <Card.ImgOverlay style={bottomCard} className=" bg-black ">
+            <Container className="">
+              <Card.Title className="Justify-content-center text-center align-items-center">
+              <h4>Performance Alpha 1.0 </h4>
+              </Card.Title>
+              <Card.Text className='text-left' style={{ fontSize: '125%' }}>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;Welcome to the newest platform to connect performance artists and venues. 
+                Anyone who has ever endeavored to play an instrument or performed music live, has at one point or another experienced the difficulty of finding and booking an appropriate venue. 
+                Performance aims to alleviate this inherent problem while also increasing potential revenue, brand exposure, and propagating future bookings for both venues and artists. 
+                Performance is a platform where independent artists and local venues can connect and collaborate. Performance is designed to allow artists to network with venues in order to maximize their exposure locally, regionally, nationally — wherever they want. 
+                At the same time, Performance gives venues of all shapes and sizes the ability to book independent artists online in a quick and easy process that mutually benefits both parties. Whether it be corporate events, county fairs, birthdays, or house shows and parties - Performance is the platform for you!
               </Card.Text>
-              <Card.Text>Last updated 3 mins ago</Card.Text>
+              {/* <Card.Text>Last updated 3 mins ago</Card.Text> */}
+              <div className='row'>
+                <div className='col-5'></div>
+                <Button className='col-2' onClick={() => onJoin()} variant="warning">Join Today!</Button>
+                <div className='col-5'></div>
+              </div>
+              
             </Container>
           </Card.ImgOverlay>
         </Card>

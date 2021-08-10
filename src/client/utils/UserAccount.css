@@ -29,11 +29,13 @@ div.row {
     display: flex;
     width: 100%;
 }
+/*
 div.container {
     
     display: flex;
     width: 100%;
 }
+*/
 
 div.bg {
     display: flex;
