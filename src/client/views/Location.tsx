@@ -287,15 +287,15 @@ const Location = () => {
                 <div className='d-none d-sm-block col-lg-2 col-md-3 border-end'>
                     <div className="ms-2 card">
                         <ul className="list-group  list-group-flush"> 
-                            <li className="list-group-item bg-dark text-white pl-2">{sidebarSelection}{colon}</li>
-                            <li className="list-group-item bg-dark text-white pl-2">{length} {post}</li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark pl-2"></li>
-                            <li className="list-group-item bg-dark  pl-2"><Link to={`/${locationEventName}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' onMouseEnter={() => hoverMakeEnter()} onMouseLeave={() => hoverMakeLeave()} type='button' className='btn text-white ps-2 pe-2 btn-dark'>Make Post  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
-                            <li className="list-group-item bg-dark pl-2"><Link to={`/${locationEventName}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/view`}><button id='viewButton' type='button' onMouseEnter={() => hoverViewEnter()} onMouseLeave={() => hoverViewLeave()} className='btn text-white ps-2 pe-2 btn-dark'>View Posts  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
+                            <li className="list-group-item bg-black text-white pl-2">{sidebarSelection}{colon}</li>
+                            <li className="list-group-item bg-black text-white pl-2">{length} {post}</li>
+                            <li className="list-group-item bg-black pl-2"></li>
+                            <li className="list-group-item bg-black pl-2"></li>
+                            <li className="list-group-item bg-black pl-2"></li>
+                            <li className="list-group-item bg-black pl-2"></li>
+                            <li className="list-group-item bg-black pl-2"></li>
+                            <li className="list-group-item bg-black  pl-2"><Link to={`/${locationEventName}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/post`}><button id='makeButton' onMouseEnter={() => hoverMakeEnter()} onMouseLeave={() => hoverMakeLeave()} type='button' className='btn text-white ps-2 pe-2 btn-dark'>Make Post  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
+                            <li className="list-group-item bg-black pl-2"><Link to={`/${locationEventName}/${deconstructedMonth}-${deconstructedDay}-${deconstructedYear}/view`}><button id='viewButton' type='button' onMouseEnter={() => hoverViewEnter()} onMouseLeave={() => hoverViewLeave()} className='btn text-white ps-2 pe-2 btn-dark'>View Posts  ‎‏‏‎ ‎‏‏‎ ‎‏‏‎🡆</button></Link></li>
                         </ul>
                     </div>
                 </div>

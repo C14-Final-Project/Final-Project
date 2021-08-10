@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { userContext } from '../utils/userContext'
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const LocationDay = () => {
 
@@ -80,7 +81,7 @@ const LocationDay = () => {
         return (
             
                 
-                <div key={`post-${val.id}`} id={`postid-${val.id}`}  style={{ margin: "auto" }} onMouseEnter={() => hoverEnterPost(val.id)} onMouseLeave={() => hoverLeavePost(val.id)}  className="row mb-3 mt-3 ps-2">
+                <div key={`post-${val.id}`} id={`postid-${val.id}`}  style={{ margin: "auto" }} className="row bg-black mb-3 mt-3 ps-2">
                     <div id={`profile-card-${val.id}`} className="col-md-3 invisible  mb30">
                         <div className="card">
 
@@ -105,6 +106,7 @@ const LocationDay = () => {
                             <div>
                                 <ul>
                                     <h4>{val.title}</h4>
+                                    <Link to={`/${locationEventName}/${val.id}`}><button>hey</button></Link>
                                 </ul>
 
 
@@ -133,13 +135,14 @@ const LocationDay = () => {
 
     return (
 
-        <div>
+        <div className='bg-black'>
             <div className='row m-3'></div>
             
             {array2}
 
             <div className='d-flex row mt-5 mb-5'>
                 <div className='col-12'>
+                    
                     <div className='lead justify-content-center row'>End of Feed</div>
                 </div>
             </div>
