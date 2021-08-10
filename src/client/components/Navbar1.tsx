@@ -31,7 +31,12 @@ const Navbar1 = () => {
   const logoutContext = {
 		invisible: 'invisible',
 		invisible2: '',
-		auth: false
+		auth: false,
+    loginText: 'Login',
+    registerText: 'Register',
+    username: '',
+    profileType: '',
+    email: '',
 	}
 
   const getLocation = async () => {
