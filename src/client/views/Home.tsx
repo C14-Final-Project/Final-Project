@@ -206,8 +206,8 @@ const Home = () => {
 
   if (propsObj.register == undefined && propsObj.login == undefined) {
     return (
-      <div className="bg-dark">
-        <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
+      <div className="bg-black">
+        <Card className="bg-black text-white d-flex justify-content-center align-items-center ">
           <Card.Img
             className=""
             src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
@@ -254,15 +254,15 @@ const Home = () => {
   }
   if (propsObj.register == true) {
     return (
-      // <div className="bg-dark">
-        <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
+      // <div className="bg-black">
+        <Card className="bg-black text-white d-flex justify-content-center align-items-center ">
           <Card.Img
             className=""
             src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
             alt="Card image"
           />
 
-          <Card.ImgOverlay className=" bg-dark ">
+          <Card.ImgOverlay className=" bg-black ">
             <Container className="d-flex flex-column justify-content-center align-items-center">
               <Card.Title className="mb-3">Performance</Card.Title>
               <Card.Text>
@@ -351,15 +351,15 @@ const Home = () => {
     );
   } if (propsObj.login == true) {
     return (
-      <div className="bg-dark">
-        <Card className="bg-dark text-white d-flex justify-content-center align-items-center ">
+      <div className="bg-black">
+        <Card className="bg-black text-white d-flex justify-content-center align-items-center ">
           <Card.Img
             className=""
             src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
             alt="Card image"
           />
 
-          <Card.ImgOverlay className=" bg-dark ">
+          <Card.ImgOverlay className=" bg-black ">
             <Container className="text-center">
               <Card.Title className="Justify-content-center align-items-center">
                 Performance
@@ -386,10 +386,8 @@ const Home = () => {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                     required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button onClick={() => Login()} variant="primary" >
+                
+                <Button onClick={() => Login()} className='text-black' variant="warning" >
                   Submit
                 </Button>
               </Form>

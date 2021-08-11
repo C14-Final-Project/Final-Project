@@ -277,7 +277,7 @@ const Location = () => {
         <div className='custom'>
 
             <div style={{ margin: "auto" }} className='row pb-2 d-flex flex-row bg-black text-white'>
-                <div style={{ fontSize: "300%" }} className='ps-4 col-12' >{locationEventName}</div>
+                <div style={{ fontSize: "300%" }} className='ps-4 col-12' >Birmingham, Alabama</div>
             </div>
 
             <div style={{ margin: "auto" }} id='smallScreen' className='row invisible'>

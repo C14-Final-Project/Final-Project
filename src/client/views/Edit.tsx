@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../utils/EditUserAccount.css";
+import '../utils/EditUserAccount'
 import Image from "react-bootstrap/Image";
 import { nameProps } from "../utils/types";
 import { useEffect, useState, useContext } from "react";

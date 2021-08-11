@@ -139,7 +139,7 @@ const Navbar1 = () => {
                 <NavLink style={{ textDecoration: "none" }} to={`/${locationEventName}`} className='link mt-2' activeClassName="active"><a className="nav-link" href="">{processing.city}{comma.comma} {processing.state}</a></NavLink>
                 <NavLink style={{ textDecoration: "none" }} to={`/users/${propsObj.username}`} className={`${propsObj.invisible} link mt-2`} activeClassName="active"><a className="nav-link" href="">{propsObj.username}</a></NavLink>
                 <Nav.Link onClick={() => logOut()} className={`${propsObj.invisible}  link`} ><a className="nav-link" href="">{propsObj.logout}</a></Nav.Link>
-                <div style={{ width: '50vw' }}></div>
+                <div style={{ width: '60vw' }}></div>
                 <Nav.Link onClick={() => goLogin()} className={`${propsObj.invisible2} mt-2 `} href="">{propsObj.loginText}</Nav.Link>
                 <Nav.Link onClick={() => goRegister()} className={`${propsObj.invisible2} link`} ><a className="nav-link" href="">{propsObj.registerText}</a></Nav.Link>
                 
