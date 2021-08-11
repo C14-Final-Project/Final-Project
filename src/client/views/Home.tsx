@@ -217,7 +217,7 @@ const Home = () => {
            <Card.ImgOverlay style={topCard} className="m-5 ">
             <Container className="text-left">
               <Card.Title className="text-center">
-              <h1 style={{ fontSize: '500%' }}><i><b>Performance</b></i></h1>
+              <h1 className= "performanceHeader" style={{ fontSize: '500%' }}><i><b>Performance</b></i></h1>
               </Card.Title>
               
             </Container>

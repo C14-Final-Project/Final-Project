@@ -104,13 +104,18 @@ const App = () => {
 						<Register />
 					</Route>
 
-					<Route path="/users/:username">
+					<Route exact path="/users/:username">
 						<UserAccount />
 					</Route>
 
 
-					<Route path="/users/:username/edit">
-						<UserAccount />
+					<Route exact path="/users/:username/edit">
+						<EditUserAccount />
+					</Route>
+
+
+					<Route exact path="/users/:username/edit">
+						<EditUserAccount />
 
 					</Route>
 

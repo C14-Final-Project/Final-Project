@@ -8,7 +8,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
 const UserAccount = () => {
-  const {propsObj, setPropsObj } = useContext(userContext);
+  const { propsObj, setPropsObj } = useContext(userContext);
   const { username } = useParams<{ username: string }>();
   const [profileObject, setProfileObject] = useState({
     userid: null,
@@ -55,7 +55,7 @@ const UserAccount = () => {
                           src="https://media-exp1.licdn.com/dms/image/C4E03AQENJn5vvnAqgA/profile-displayphoto-shrink_800_800/0/1627999158218?e=1633564800&v=beta&t=LYO8klYD-nQqNifC8hBd9tNjy2a1MNLliRVOuY_j2kM"
                           alt="Admin"
                           className="rounded-circle"
-                          width="150"
+                          width="200"
                         ></img>
 
                         <div className="mt-2">
@@ -64,7 +64,7 @@ const UserAccount = () => {
                           <h5>
                             <i>
                               <b>Performance™︁ </b>
-                            </i>{" "}
+                            </i>
                             {profileObject.profileType}
                           </h5>
                           <p className=" mb-1">
@@ -185,24 +185,22 @@ const UserAccount = () => {
                   </div>
                 </div>
                 <div className="col-md-8 mt-2">
-                  <div className="card mb-3">
+                  <div className="card mb-2">
                     <div className="card-body h-250px">
-                    
-
-<div className="card h-100">
-	<div className="bio-card-body">
-		<div className="account-settings">
-			
-			<div className="about">
-				<h5><i>Performance™︁</i> Bio:</h5> Full-Stack Web Developer by day, Heavy-Metal Drummer for "O.O.P," by night.
-				{/* <p>{profileObject.profileBio}</p> */}
-			</div>
-		
-	</div>
-
-</div>
-                    </div>
-                
+                      <div className="card h-100">
+                        <div className="bio-card-body">
+                          <div className="account-settings">
+                            <div className="about p-0 m-0">
+                              <h5>
+                                <i>Performance™︁</i> Bio:
+                              </h5>
+                              Full-Stack Web Developer by day, Heavy-Metal
+                              Drummer for "O.O.P," by night. Former lead singer for JavaScript Juggalos. Have performed several large venues, including a near-sellout of the BJCC in July, 2021.
+                              {/* <p>{profileObject.profileBio}</p> */}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                       <div className="row">
                         <div className="col-sm-12">
@@ -225,8 +223,8 @@ const UserAccount = () => {
                           <h6 className="d-flex align-items-center mb-3">
                             Tickets Sales For
                             <i>
-                              <b>Performance™︁ </b>
-                            </i>{" "}
+                              <b> Performance™︁ </b>
+                            </i>
                             Venues
                           </h6>
                           <small>BJCC</small>
@@ -292,10 +290,10 @@ const UserAccount = () => {
                       <div className="card h-100">
                         <div className="card-body">
                           <h6 className="d-flex align-items-center mb-3">
-                            Merchandise Sales For 
+                            Merchandise Sales For
                             <i>
-                              <b>Performance™︁ </b>
-                            </i>{" "}
+                              <b> Performance™︁ </b>
+                            </i>
                             Venues
                           </h6>
                           <small>BJCC</small>
@@ -363,7 +361,6 @@ const UserAccount = () => {
           </div>
         </div>
       </div>
-    
     </>
   );
 };
