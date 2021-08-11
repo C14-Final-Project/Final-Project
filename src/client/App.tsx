@@ -5,15 +5,18 @@ import Footer from './components/Footer';
 import Home from './views/Home';
 import Location from './views/Location';
 import UserAccount from './views/UserAccount';
+import EditUserAccount from './views/EditUserAccount';
 import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost';
 import Register from './views/Register';
+import Login  from './views/Login'
 import { nameProps } from './utils/types';
 import { useHistory } from 'react-router-dom'
 import { userContext } from "./utils/userContext";
 import { createContext } from "react";
 import { useState, useEffect } from 'react';
+
 
 
 
@@ -105,8 +108,10 @@ const App = () => {
 						<UserAccount />
 					</Route>
 
+
 					<Route path="/users/:username/edit">
 						<UserAccount />
+
 					</Route>
 
 					<Route exact path="/:locationEventName/:sidebarSelection/post">
