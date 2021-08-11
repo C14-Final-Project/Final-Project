@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import { userContext } from '../utils/userContext'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 const LocationDay = () => {
 
@@ -79,80 +81,59 @@ const LocationDay = () => {
 
     const displayedPosts = array.map(val => {
         return (
-            
-                
-                <div key={`post-${val.id}`} id={`postid-${val.id}`}  style={{ margin: "auto" }} className="row bg-black mb-3 mt-3 ps-2">
-                    <div id={`profile-card-${val.id}`} className="col-md-3 invisible  mb30">
-                        <div className="card">
 
-                            <div className="row">
-                                <img style={imgBuddy} src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" className="col-4 m-2 rounded-circle" ></img>
-                                <h4 className="flex-column col-7 align-items-bottom"><span>{val.profileName}</span></h4>
-                                <div className='col-1'></div>
-                            </div>
+
+            <Container key={`post-${val.id}`} id={`postid-${val.id}`} className="d-flex flex-column pt-2 justify-content-center align-items-center">
+                <div className='row'>
+                    <div className='col-2'></div>
+                    <div className='col-8'>
+                        <div className="bg-black border border-white rounded mt-2">
                             <div>
-                                <ul><span>View {val.username}'s profile</span></ul>
-                                <ul><span>{val.tag1}</span></ul>
-                                <ul><span>{val.tag2}</span></ul>
-                                <ul><span>{val.tag3}</span></ul>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div id={`post-card-${val.id}`}  className="border-start me-2 col-md-9">
-                        <div className="card">
-                            <div>
-                                <ul>
-                                    <h4>{val.title}</h4>
-                                    <Link to={`/${locationEventName}/${val.id}`}><button>hey</button></Link>
-                                </ul>
-
-
-                                <div className="tab-content admin-tab-content pt30">
-                                    <div role="tabpanel" className="tab-pane active show" id="t1">
-                                        <ul className="activity-list list-unstyled">
-                                            <li>{val.text}</li>
-                                            <li>Time Wanted: {val.timeEvent}</li>
-                                            <li>Day Wanted: {val.dayEvent}</li>
-                                            <li>Day posted: {val.dayPosted}</li>
-                                            <li>Time posted: {val.timePosted}</li>
-                                            <li>Hire price: {val.moneyAmount}</li>
-
-                                        </ul>
+                                <div className="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                                    <div className="d-flex flex-row align-items-center feed-text px-2"><img className="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45"></img>
+                                        <div className="d-flex flex-column flex-wrap ml-2"><h2 className="font-weight-bold text-white display-5">&nbsp;&nbsp;{val.profileName}</h2></div>
+                                        
                                     </div>
-
+                                    <div className="d-flex flex-row align-items-right feed-text px-2">
+                                        
+                                        <div className="d-flex flex-row align-items-right flex-wrap ml-2"><span className="text-black-50 ms-1 me-1 time badge bg-warning text-dark">{val.tag1}</span><span className="text-black-50  ms-1 me-1 time badge bg-warning text-dark">{val.tag2}</span><span className="text-black-50  ms-1 me-1 time badge bg-warning text-dark">{val.tag3}</span></div>
+                                    </div>
+                                    <div className="feed-icon px-2"><i className="fa fa-ellipsis-v text-white-50"></i></div>
                                 </div>
                             </div>
+                            <div className="p-1 px-3"><h2 className='text-white'>{val.title}</h2></div>
+                            <div className="p-2 px-3"><span className='text-white'>{val.text}</span></div>
+                            <div className="p-1 px-3"><span className="text-white-50 time">Day Wanted: {val.dayEvent}</span><span className="text-white-50 time">&nbsp;Time Wanted: {val.timeEvent}</span><span className="text-white-50 time">&nbsp;Day posted: {val.dayPosted} Time posted: {val.timePosted}</span><span className="text-white-50 time">&nbsp;Hire price: {val.moneyAmount}</span></div>
+                            <div className="d-flex justify-content-end socials p-2 py-3"><i className="fa fa-thumbs-up"></i><i className="fa fa-comments-o"></i><i className="fa fa-share"></i></div>
                         </div>
                     </div>
+                    <div className='col-2'></div>
                 </div>
-            
+            </Container>
+
         )
     });
 
 
     return (
 
-        <div className='bg-black'>
-            <div className='row m-3'></div>
-            
-            {array2}
+        <Card className="bg-dark d-flex justify-content-center align-items-center ">
+            <Card.Img
+                className=""
+                src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
+                alt="Card image"
+            />
 
-            <div className='d-flex row mt-5 mb-5'>
-                <div className='col-12'>
-                    
-                    <div className='lead justify-content-center row'>End of Feed</div>
-                </div>
-            </div>
-        </div>
+            <Card.ImgOverlay className="flex-column bg-black ">
+
+                {array2}
+
+            </Card.ImgOverlay>
+
+        </Card>
 
     )
 }
 
 export default LocationDay
-
-
-
 
