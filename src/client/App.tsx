@@ -111,6 +111,11 @@ const App = () => {
 
 					<Route exact path="/users/:username/edit">
 						<EditUserAccount />
+					</Route>
+
+
+					<Route exact path="/users/:username/edit">
+						<EditUserAccount />
 
 					</Route>
 

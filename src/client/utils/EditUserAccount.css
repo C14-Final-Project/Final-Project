@@ -5,38 +5,36 @@
 .thebody {
     padding: auto;
     background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
-    width: 100%;
-    zoom: 100%;
+    background-size: flex; 
     height: 74vh;
     align-items: center;
     display: flex;
-   
-}
-.main-body {
-    padding: auto;
-    background-image: url(https://cdn.discordapp.com/attachments/870732357328601129/873608353694220298/bguseacct_2.jpg);
-    width: 100%;
+    
     
 }
+.main-body {
+    padding: auto;    
+    width: 100%;    
+}
 
-.card-body {
+.profile-card-body {
     padding: auto;
     margin: auto;
    justify-content: center;
-    width: 100%;
- 
+    width: 100%; 
     position: relative;
     display: flex;
     flex-direction: column;
     background-color: #082f6338;
-    word-wrap: break-word;
-    
-
-  
+    word-wrap: break-word;  
     border-radius: .75rem;
 }
 
-
+.editimage {
+  
+    height: 250px;
+    
+}
 
     
 li.list-group-item {
@@ -44,12 +42,20 @@ li.list-group-item {
 }
 
 
-.zoom { 
-    zoom: 100%;
-    min-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    max-width: 100%;
-    overflow: hidden;   
+#bio {
+    height: 150px;
 }
 
+
+
+.about {
+    background-color: #b0cff738;
+
+    height: 150px;
+}
+
+.user-avatar {
+    align-items: center;
+    padding: .75em .75em .75em .75em;   
+    margin: .75em .75em .75em .75em ;
+}

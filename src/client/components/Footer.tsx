@@ -12,7 +12,7 @@ function Footer() {
         {/* <!-- Grid container --> */}
         <div className="container">
           {/* <!--Grid row--> */}
-          <div className="row p-1">
+          <div className="row p-3">
             {/* <!--Grid column--> */}
             <div className="col-lg-3 col-md-6 ">
               <h5 className="text-uppercase text-white"><i><b>Performance™︁</b></i> Venues</h5>
