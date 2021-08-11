@@ -90,8 +90,8 @@ const LocationDay = () => {
                         <div className="bg-black border border-white rounded mt-2">
                             <div>
                                 <div className="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                                    <div className="d-flex flex-row align-items-center feed-text px-2"><img className="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45"></img>
-                                        <div className="d-flex flex-column flex-wrap ml-2"><h2 className="font-weight-bold text-white display-5">&nbsp;&nbsp;{val.profileName}</h2></div>
+                                    <div className="d-flex flex-row align-items-center feed-text px-2"><img className="rounded-circle" src={`${val.profilePhoto}`} width="45"></img>
+                                        <div className="d-flex flex-column flex-wrap ml-2"><Link style={{ textDecoration: "none" }} to={`/users/${val.username}`}><h2 className="font-weight-bold text-white display-5">&nbsp;&nbsp;{val.profileName}</h2></Link></div>
                                         
                                     </div>
                                     <div className="d-flex flex-row align-items-right feed-text px-2">
