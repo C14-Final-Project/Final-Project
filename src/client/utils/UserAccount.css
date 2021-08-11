@@ -10,7 +10,7 @@
     
    
 }
-.main-body {
+.user-main-body {
     padding-top: 30px;
     
     width: 100%;
@@ -18,7 +18,7 @@
 }
 
 
-.card-body {
+.customCard {
     padding: auto;
     margin: auto;   
     width: 100%;   

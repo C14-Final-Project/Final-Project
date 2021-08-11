@@ -9,12 +9,20 @@
     height: 74vh;
     align-items: center;
     display: flex;
-    
-    
 }
-.main-body {
-    padding: auto;    
-    width: 100%;    
+    
+    
+
+.edit-customCard {
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    padding: auto;
+    margin: auto;   
+    width: 100%;   
+    display: flex;
+    flex-direction: column;
+    background-color: #082f6338;    
 }
 
 .profile-card-body {
@@ -36,6 +44,16 @@
     
 }
 
+#tag-submit {
+    width: 50px;
+    height: 25px;
+    font-size: .7em;
+    padding: 3px;
+}
+
+.edit-account-settings {
+    width: auto;
+}
     
 li.list-group-item {
     background-color: #082f6338;
@@ -43,10 +61,14 @@ li.list-group-item {
 
 
 #bio {
+    align-items: top;
     height: 150px;
 }
 
-
+#update-submit {
+    margin-left: .5em;
+    margin-right: .5em
+}
 
 .about {
     background-color: #b0cff738;
@@ -55,7 +77,8 @@ li.list-group-item {
 }
 
 .user-avatar {
+    background-color: #03429438;
     align-items: center;
     padding: .75em .75em .75em .75em;   
-    margin: .75em .75em .75em .75em ;
+   
 }
