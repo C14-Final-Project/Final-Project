@@ -3,6 +3,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import { userContext } from '../utils/userContext'
 import { useParams } from 'react-router-dom'
 import '../utils/SinglePost'
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 /*
 select Posts.title, Posts.text, Posts.dayEvent, Posts.timeEvent, Posts.dayPosted, Posts.timePosted, Posts.moneyAmount, Posts.locationEventName, Users.username, Users.email, Users.profileLocation, Users.profileType, Users.profileName, Users.profilePhoto
@@ -39,53 +41,20 @@ const SinglePost = () => {
     return (
 
         <div className='bg-black'>
-            <div className='mb-0'>
-                <p>workin on it</p>
-                <div id="gradient"></div>
-                <div id="card">
-                    <img src="https://i.pinimg.com/236x/e4/79/6f/e4796feff700a4b840d52244f108e331.jpg" />
-                    <h2>title</h2>
-                    <p>dayEvent</p>
-                    <p>timeEvent</p>
-                    <p>locationEventName</p>
-                    <p>
-                        text body
-                    </p>
-                    <div className='flex-column' id='userInfo'>
-                        <ul><span className="left ">username</span></ul>
-                        <ul><span className="left  ">email</span></ul>
-                        <ul><span className="left ">profileName</span></ul>
-                        <ul><span className="left ">profileType</span></ul>
-                        <ul><span className="left ">profileLocation</span></ul>
-                    </div>
+            <Card className="bg-dark d-flex justify-content-center align-items-center ">
+                <Card.Img
+                    className=""
+                    src="https://i.postimg.cc/SN8kPx5K/edit.jpg"
+                    alt="Card image"
+                />
 
-
-
-
-
-                    <span className="left bottom">&nbsp;moneyAmount</span>
-
-                    <span className="right bottom">posted on dayPosted at timePosted</span>
-                </div>
-
-            </div>
-            <div className='mb-0'>
-                <p>workin on it</p>
-                <div id="gradient"></div>
-                <div id="card">
-                    <img src="https://i.pinimg.com/236x/e4/79/6f/e4796feff700a4b840d52244f108e331.jpg" />
-                    <h2>Ondřej Page Bárta</h2>
-                    <p>Student of IT in Czech republic.</p>
-                    <p>
-                        Interested in Web technologies like HTML5, CSS3, JavaScript, PHP,
-                        MySQL, etc.
-                    </p>
-                    <p>Love Codepen.io and respect Chris Coyier.</p>
-                    <span className="left bottom">tel: 731 366 ***</span>
-                    <span className="right bottom">adress: Czech Republic</span>
-                </div>
-
-            </div>
+                <Card.ImgOverlay className="flex-column bg-black ">
+                   
+                    
+                </Card.ImgOverlay>
+                
+            </Card>
+            
         </div>
 
     )
