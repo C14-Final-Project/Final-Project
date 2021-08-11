@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './views/Home';
 import Location from './views/Location';
 import UserAccount from './views/UserAccount';
-import EditUserAccount from './views/EditUserAccount';
+import EditUserAccount from './views/Edit';
 import LocationDay from './views/LocationDay';
 import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost';

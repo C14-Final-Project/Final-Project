@@ -5,6 +5,7 @@ import { nameProps } from "../utils/types";
 import { useEffect, useState, useContext } from "react";
 import { userContext } from "../utils/userContext";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const UserAccount = () => {
   const {propsObj, setPropsObj } = useContext(userContext);
@@ -58,11 +59,11 @@ const UserAccount = () => {
                         ></img>
 
                         <div className="mt-2">
-                          <h4>Username: {profileObject.username}</h4>
+                          <h4>{profileObject.username}</h4>
 
                           <h5>
                             <i>
-                              <b>™︁Performance </b>
+                              <b>Performance™︁ </b>
                             </i>{" "}
                             {profileObject.profileType}
                           </h5>
@@ -103,7 +104,7 @@ const UserAccount = () => {
                             </svg>
                             Website
                           </h6>
-                          <span>https://adammathewvaughn.com</span>
+                          <span>performance/adamv84.com</span>
                         </li>
                         <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                           <h6 className="mb-0">
@@ -186,29 +187,32 @@ const UserAccount = () => {
                 <div className="col-md-8 mt-2">
                   <div className="card mb-3">
                     <div className="card-body h-250px">
-                      <div className="row">
-                        <div className="col-sm-3">
-                          <div className=" col-xs-12">
-                          <h5>
-                            <b>{profileObject.profileName}Bio:</b>
-                          </h5>
-                        
-                       
-                          {profileObject.profileBio}
-                        </div>
-                      </div>
+                    
+
+<div className="card h-100">
+	<div className="bio-card-body">
+		<div className="account-settings">
+			
+			<div className="about">
+				<h5><i>Performance™︁</i> Bio:</h5> Full-Stack Web Developer by day, Heavy-Metal Drummer for "O.O.P," by night.
+				{/* <p>{profileObject.profileBio}</p> */}
+			</div>
+		
+	</div>
+
+</div>
                     </div>
                 
 
                       <div className="row">
                         <div className="col-sm-12">
-                          <a
-                            className="btn btn-dark "
+                          <Link
+                            className="btn btn-primary mt-1"
                             target="__blank"
-                            href="https://www.adammathewvaughn.com/snippets/view/profile-edit-data-and-skills"
+                            to={`/users/${profileObject.username}/edit`}
                           >
                             Edit
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -231,7 +235,7 @@ const UserAccount = () => {
                             style={{ height: "5px" }}
                           >
                             <div
-                              className="progress-bar bg-primary"
+                              className="progress-bar bg-success"
                               role="progressbar"
                               style={{ width: "90%" }}
                             ></div>
@@ -288,9 +292,9 @@ const UserAccount = () => {
                       <div className="card h-100">
                         <div className="card-body">
                           <h6 className="d-flex align-items-center mb-3">
-                            Merchandise Sales For ™︁
+                            Merchandise Sales For 
                             <i>
-                              <b>Performance </b>
+                              <b>Performance™︁ </b>
                             </i>{" "}
                             Venues
                           </h6>
@@ -322,7 +326,7 @@ const UserAccount = () => {
                             style={{ height: "5px" }}
                           >
                             <div
-                              className="progress-bar bg-danger"
+                              className="progress-bar bg-success"
                               role="progressbar"
                               style={{ width: "90%" }}
                             ></div>
@@ -344,7 +348,7 @@ const UserAccount = () => {
                             style={{ height: "5px" }}
                           >
                             <div
-                              className="progress-bar bg-primary"
+                              className="progress-bar bg-danger"
                               role="progressbar"
                               style={{ width: "56%" }}
                             ></div>
@@ -359,7 +363,7 @@ const UserAccount = () => {
           </div>
         </div>
       </div>
-    );
+    
     </>
   );
 };
