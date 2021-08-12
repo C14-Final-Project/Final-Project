@@ -49,11 +49,13 @@ const UserAccount = () => {
               <div className="row gutters-sm">
                 <div className="col-md-4 mb-3 mt-2">
                   <div className="card">
+
                     <div className="customCard">
+
                       <div className="d-flex flex-column align-items-center text-center">
                         <h4>{profileObject.username}</h4>
                         <img
-                          src="https://media-exp1.licdn.com/dms/image/C4E03AQENJn5vvnAqgA/profile-displayphoto-shrink_800_800/0/1627999158218?e=1633564800&v=beta&t=LYO8klYD-nQqNifC8hBd9tNjy2a1MNLliRVOuY_j2kM"
+                          src={`${profileObject.profilePhoto}`}
                           alt="Admin"
                           className="rounded-circle"
                           width="200"
@@ -81,7 +83,9 @@ const UserAccount = () => {
                     </div>
                   </div>
 
+
                   <div className="customCard">
+
                     <div className="card mt-2">
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -186,9 +190,11 @@ const UserAccount = () => {
                 </div>
                 <div className="col-md-8 mt-2">
                   <div className="card mb-2">
+
                     <div className="customCard h-250px">
                       <div className="card h-100">
                         <div className="bio-customCard">
+
                           <div className="account-settings">
                             <div className="about p-0 m-0">
                               <h5>
@@ -219,7 +225,9 @@ const UserAccount = () => {
                   <div className="row gutters-sm">
                     <div className="col-sm-6 mb-3">
                       <div className="card h-100">
+
                         <div className="customCard">
+
                           <h6 className="d-flex align-items-center mb-3">
                             Tickets Sales For
                             <i>
@@ -288,7 +296,9 @@ const UserAccount = () => {
 
                     <div className="col-sm-6 mb-3">
                       <div className="card h-100">
+
                         <div className="customCard">
+
                           <h6 className="d-flex align-items-center mb-3">
                             Merchandise Sales For
                             <i>

@@ -7,7 +7,6 @@ import Location from './views/Location';
 import UserAccount from './views/UserAccount';
 import EditUserAccount from './views/Edit';
 import LocationDay from './views/LocationDay';
-import SinglePost from './views/SinglePost';
 import MakePost from './views/MakePost';
 import Register from './views/Register';
 import Login  from './views/Login'
@@ -125,10 +124,6 @@ const App = () => {
 
 					<Route path="/:locationEventName/:sidebarSelection/view">
 						<LocationDay />
-					</Route>
-
-					<Route path="/:locationEventName/:postid">
-						<SinglePost />
 					</Route>
 
 					<Route path="/:locationEventName">
