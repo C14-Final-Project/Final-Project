@@ -44,13 +44,16 @@ const UserAccount = () => {
     <>
       <div className="thebody">
         <div className="container">
-          <div className="main-body">
+          <div className="users-main-body">
             <div className="bg">
               <div className="row gutters-sm">
                 <div className="col-md-4 mb-3 mt-2">
                   <div className="card">
-                    <div className="card-body customCard">
+
+                    <div className="customCard">
+
                       <div className="d-flex flex-column align-items-center text-center">
+                        <h4>{profileObject.username}</h4>
                         <img
                           src={`${profileObject.profilePhoto}`}
                           alt="Admin"
@@ -59,7 +62,6 @@ const UserAccount = () => {
                         ></img>
 
                         <div className="mt-2">
-                          <h4>{profileObject.username}</h4>
 
                           <h5>
                             <i>
@@ -81,7 +83,9 @@ const UserAccount = () => {
                     </div>
                   </div>
 
-                  <div className="card-body customCard">
+
+                  <div className="customCard">
+
                     <div className="card mt-2">
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -186,9 +190,11 @@ const UserAccount = () => {
                 </div>
                 <div className="col-md-8 mt-2">
                   <div className="card mb-2">
-                    <div className="card-body customCard h-250px">
+
+                    <div className="customCard h-250px">
                       <div className="card h-100">
-                        <div className="bio-card-body customCard">
+                        <div className="bio-customCard">
+
                           <div className="account-settings">
                             <div className="about p-0 m-0">
                               <h5>
@@ -219,7 +225,9 @@ const UserAccount = () => {
                   <div className="row gutters-sm">
                     <div className="col-sm-6 mb-3">
                       <div className="card h-100">
-                        <div className="card-body customCard">
+
+                        <div className="customCard">
+
                           <h6 className="d-flex align-items-center mb-3">
                             Tickets Sales For
                             <i>
@@ -288,7 +296,9 @@ const UserAccount = () => {
 
                     <div className="col-sm-6 mb-3">
                       <div className="card h-100">
-                        <div className="card-body customCard">
+
+                        <div className="customCard">
+
                           <h6 className="d-flex align-items-center mb-3">
                             Merchandise Sales For
                             <i>
